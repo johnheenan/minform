@@ -2,9 +2,9 @@
 
 Modern, lightweight Eleventy v4 starter with Tailwind or Pico.css, CMS and multisiting 🥷
 
-<img src="https://img.shields.io/github/v/release/anydigital/sveleven?color=black&label=">
-<img src="https://img.shields.io/netlify/93494d69-cb21-4ad0-855f-3748d3741e5c?logo=netlify&labelColor=black&label=">
-<a href="https://github.com/anydigital/sveleven" target="_blank"><img src="https://img.shields.io/github/stars/anydigital/sveleven?label=GitHub"></a>
+![](https://img.shields.io/github/v/release/anydigital/sveleven?color=black&label=)
+![](https://img.shields.io/netlify/93494d69-cb21-4ad0-855f-3748d3741e5c?logo=netlify&labelColor=black&label=)
+[![](https://img.shields.io/github/stars/anydigital/sveleven?label=GitHub)](https://github.com/anydigital/sveleven)
 
 ## Killer features
 
@@ -29,9 +29,9 @@ Modern, lightweight Eleventy v4 starter with Tailwind or Pico.css, CMS and multi
 
 - _BUT_ focusing exclusively on Eleventy v4 and adding Tailwind v4 support.
 - It uses same [eleventy-bricks](https://github.com/anydigital/eleventy-bricks) plugin to symlink `eleventy.config.js` by default (so you don't have to maintain it anymore!)
-- It also uses Nunjucks version of the same *universal* <i class="fa-solid fa-cubes-stacked"></i> [bricks](https://github.com/anydigital/bricks) theme:
-  - *universal* means you can switch `.njk` to `.liquid` any time
-  - *universal* also means you can switch from `tailwind` to `pico.css` or even bare-metal `bricks.css`
+- It also uses Nunjucks version of the same _universal_ <i class="fa-solid fa-cubes-stacked"></i> [bricks](https://github.com/anydigital/bricks) theme:
+  - _universal_ means you can switch `.njk` to `.liquid` any time
+  - _universal_ also means you can switch from `tailwind` to `pico.css` or even bare-metal `bricks.css`
 
 ---
 
