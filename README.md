@@ -1,92 +1,81 @@
-# Sveleven
 
-Modern, lightweight Eleventy v4 starter with Tailwind or Pico.css, CMS and multisiting 🥷
+# Minform
 
-![](https://img.shields.io/github/v/release/anydigital/sveleven?color=black&label=)
-![](https://img.shields.io/netlify/93494d69-cb21-4ad0-855f-3748d3741e5c?logo=netlify&labelColor=black&label=)
-[![](https://img.shields.io/github/stars/anydigital/sveleven?label=GitHub)](https://github.com/anydigital/sveleven)
+## Website template starter with markdown and minimalist forms
 
-## Killer features
+A very minimalist approach to adding in forms templating to a website starter template that supports markdown.
 
-1. **Eleventy v4 by default**  
-   <sup>both v4 (default) & v3 supported</sup>
-2. **"Thin client" architecture**  
-   <sup>thanks [eleventy-bricks](https://github.com/anydigital/eleventy-bricks) for reusability</sup>
-3. **Tailwind v4 included**  
-   <sup>with Typography plugin & <i class="fa-solid fa-cube fa-rotate-90"></i> [bricks](https://github.com/anydigital/bricks) theme</sup>
-4. **Sveltia CMS included**  
-   <sup>modern Decap/Netlify CMS successor</sup>
-5. **Multisite support**  
-   <sup>thanks to symlink-based setup</sup>
-6. **One-click start**  
-   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/anydigital/sveleven)
+Provides examples of website template based on markdown and forms for easy automation of form building, using a simple and direct approach that avoids complex tooling and plumbing.
 
----
+Minform is a public website template using [11ty](https://11ty.dev) static website generator.
 
-## How it works?
+Minform is open source with a permissive license. 
 
-**Sveleven** is an advanced version of 🥷 [*Blade*switch](https://bladeswitch.com/) starter:
+Minform is a public web template built on [Sveleven](https://github.com/anydigital/sveleven) with the following additions:
 
-- _BUT_ focusing exclusively on Eleventy v4 and adding Tailwind v4 support.
-- It uses same [eleventy-bricks](https://github.com/anydigital/eleventy-bricks) plugin to symlink `eleventy.config.js` by default (so you don't have to maintain it anymore!)
-- It also uses Nunjucks version of the same _universal_ <i class="fa-solid fa-cube fa-rotate-90"></i> [bricks](https://github.com/anydigital/bricks) theme:
-  - _universal_ means you can switch `.njk` to `.liquid` any time
-  - _universal_ also means you can switch from `tailwind` to `pico.css` or even bare-metal `bricks.css`
+## Added
 
----
+The main addition is a minimalist approach to adding template based forms using two different approaches
 
-## Local development
+- A simpler form addition approach, easier for beginners, that requires attention to reset variable names that are reused.
+- A more abstract form addition approach that uses rendering as soon as convenient and can reuse variable names without reset. This approach is suitable for further adaptation.
+- A minimal implementation of a navigation bar
+- Minimal CSS additions to support above
+- Small number of filters and shortcodes added
+- [htmx](https://htmx.org/) added to simplify templating with only 200 OK server status response handled
+- A cors server can be specified for use in developer mode only as well as in production mode. If cors is used then a server must be configured to handle cors requests.
 
-As simple as:
+No state or login information used.
 
-```sh
-npm install    # dependencies
-npm start      # development
-npm run stage  # serve production version locally
-               # ready to deploy! 🚀
-```
+Using htmx, a backend server is expected to handle standard POST requests and return a simple HTML response for display in a `<div>` of the same page by htmx. The page is not replaced.
 
-CMS will be available locally at `http://localhost:8080/admin/` (or similar port).
 
----
+## Usage
 
-## Showcase
+This is a base template that does not expect direct live use. It is expected template implementations will show live examples. 
 
-https://any.digital/ &nbsp;
-[<i class="fa-solid fa-plus text-gray-300 hover:text-black"></i>](https://github.com/anydigital/sveleven/edit/main/src/index.md){title="Suggest your website started by Sveleven"}
+Due to the enormous number of different usage possibilities requiring adaptation, simulating a backend server or providing a direct example of use with a backend server adds unnecessary complication and potentially confusion.
 
----
+To view development examples:
 
-## More info
+- Clone repository or download a release
+- `npm install`
+- `npm start`
+- Browse to link
 
-<big>Repository: https://github.com/anydigital/sveleven</big>
 
-Found it useful? Give a [![](https://img.shields.io/github/stars/anydigital/sveleven?label=Star)](https://github.com/anydigital/sveleven)
 
-Featured in:
+## Configuration
 
-- https://11tybundle.dev/starters/
-- https://11tybundle.dev/blog/11ty-bundle-83/
-- https://www.11ty.dev/docs/starter/
-- https://sveltiacms.app/en/docs/start#starter-templates
-- https://sveltiacms.app/en/docs/frameworks/eleventy
-- https://any.digital/tricks/11ty/#min-starters
-- https://bladeswitch.com starter
+A simple approach for a backend is to take the form information and send it as an email to a server administrator, such as for a simple contact form or subscribe/unsubscribe form.
 
-Support:
+Developers are expected to use browser developer console and server logs to view server errors during development.
 
-- https://github.com/orgs/anydigital/discussions for questions and ideas
-- https://github.com/anydigital/sveleven/issues for change requests or bug reports
-- https://www.11ty.dev/blog/discord/ for 11ty community support
-- https://sveltiacms.app/en/support for Sveltia CMS community support
+Additional site.yml file variables:
+- `corsprod`, set true to uses cors in production, default`false, no quote around true or false
+- `corsurl` set to server url if using cors with localhost development, such as `corsurl: https://example.com`
+- `formpath`: is the 'script path' and must be set, such as `formpath: /cgi-bin/mailform.cgi`
 
-License: [MIT](https://github.com/anydigital/sveleven/blob/main/LICENSE)
+For localhost development it is common to set `corsurl`. However the cors server must allow cors.
 
-### <span class="font-thin">PS:</span> Why "Sveleven"?
 
-<pre>
-SVELEVEN = <mark>SV</mark>eltia CMS
-           + <mark>ELEVEN</mark>ty SSG
-</pre>
+## The two approaches for using forms
 
-"Sveleven" is simply a portmanteau of "[Sveltia CMS](https://github.com/sveltia/sveltia-cms)" and "[Eleventy SSG](https://github.com/11ty/eleventy)" — two great open-source projects that work together seamlessly.
+The two approaches that can be used for building forms with Minform are:
+
+- A simplified abstraction that is easy for beginners to follow. This approach requires reused variables to be kept clean by resetting after use. Shown `contact.md`
+
+- An example that shows more complex abstraction with convenient potential for more abstraction. This approach dramatically reduces number of variable names that need to be reset after use, by using rendering as soon as convenient. Shown in `contact2.md`.
+
+For the first simpler approach above, it is easy to override or overwrite the configuration values above on a page by page or even within a page. If overwritten, either values should be set each time or old values should be preserved and used to reset site.yaml values. A useful concept is variables to be reused should be kept clean by resetting after use. This approach is shown code for `forms/contact.liquid` as variable names are reused.
+
+For the second more abstract approach, these values can be overridden in frontmatter settings, as shown, and do not overwrite site.yaml values.
+
+
+## Background
+
+There is no need to use a traditional script path showing an apparent directory and apparent script file for `formpath`. This naming style is used in the example for compatibility with many usage examples that expect a CGI specification, which is increasingly uncommon, not necessary and not recommended.
+
+Examples should be provided of various backend server approaches, including scipt CGI, Node Express, Node framework, PHP, Python, Perl PSGI direct, Perl PSGI framework, Perl CGI, FastCGI. Also, examples of configuration for Nginx should be provided for both FastCGI and reverse proxy.
+
+For example, the Perl PSGI specification is flexible enough to allow an app to appear to be a CGI app when it is not (using a reverse proxied persistent PSGI process) or to actually work as a CGI script even though when it is written as a PSGI persistent app. In fact, reverse proxy solutions are now so common it is now common that if a traditional CGI approach is used then FastCGI, a persistent non CGI process, is itself used to launch non persistent CGI scripts, such as for Nginx which cannot launch CGI scripts.

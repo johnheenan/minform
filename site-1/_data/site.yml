@@ -1,5 +1,5 @@
-title: Sveleven
-description: Modern, lightweight Eleventy v4 starter with Tailwind or Pico.css, CMS and multisiting 🥷
+title: My Site
+description: My sample web site ready for editing
 styles:
   - https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css
   - https://cdn.jsdelivr.net/npm/prismjs@1/plugins/treeview/prism-treeview.min.css
@@ -9,9 +9,18 @@ scripts:
   - https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-core.min.js
   - https://cdn.jsdelivr.net/npm/prismjs@1/plugins/autoloader/prism-autoloader.min.js
   - https://cdn.jsdelivr.net/npm/prismjs@1/plugins/treeview/prism-treeview.min.js
-footer: |-
-  Made with <i class="fa-solid fa-heart fa-sm"></i>＋<i class="fa-solid fa-mug-hot align-text-top"></i>
-  by <a href="https://any.digital/" target="_blank"><em>Any</em>digital</a> © 2025–{{ year }}
+  - https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js
 
-  [![](https://img.shields.io/github/stars/anydigital/sveleven?label=%E2%9C%A8&logo=%20)](https://github.com/anydigital/sveleven)
-gtm_id: YOUR_GTM_ID
+footer: |-
+  This is a base template with source at <a href="https://github.com/johnheenan/minform" target="_blank">Minform Template</a>
+
+#gtm_id: YOUR_GTM_ID # leave empty or as comment if not using
+gtm_id:
+
+#corsprod: set true to uses cors in production
+corsprod: false
+
+#corsurl: set to server url if using cors, otherwise leave empty or as comment
+corsurl: https://example.com
+
+formpath: /cgi-bin/mailform.cgi
