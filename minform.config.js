@@ -1,6 +1,9 @@
 import fs from "fs";
+import eleventyAutoCacheBuster from "eleventy-auto-cache-buster";
 
 export default function minformConfig(eleventyConfig) {
+  eleventyConfig.addPlugin(eleventyAutoCacheBuster);
+
   eleventyConfig.addFilter("dataNavigation", function (nav) {
     const url = this.page.url;
     return {
