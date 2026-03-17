@@ -20,7 +20,7 @@
 {% if required contains "name" %}{% assign name_required = "required" %}{% assign name = name | default: "Your Name" %}{% endif %}
 {% if required contains "message" %}{% assign message_required = "required" %}{% assign message = message | default: "Your Message" %}{% endif %}
 {% if required contains "agreed" %}{% assign agreed_required = "required" %}{% assign agreed = agreed | default: "Agree with privacy policy?" %}{% endif %}
-<form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}">
+<form class="pico" hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}">
 <div class="contact-container">
   <input type="hidden" name="required" value="{{ required }}" />
   <input type="hidden" name="subject" value="{{ title }}" />
@@ -32,7 +32,7 @@
   {% if agreed %}<label>{{ agreed }}: <input type="checkbox" name="agreed" {{ agreed_required }}></label>{% endif %}
 </div>
   {% if message %}<label>{{ message }}: <textarea name="message" {{ message_required }}></textarea></label>{% endif %}
-<button class="form-button">{{ title }}</button>
+<button>{{ title }}</button>
 </form>
 {% if target == "internalResponse" %}<div id="internalResponse"></div>{% endif %}
 {%- liquid

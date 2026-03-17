@@ -4,7 +4,7 @@
 @plugin "@tailwindcss/typography";
 @import "@anydigital/blades";
 @import "@anydigital/blades/theme";
-
+@import "@picocss/pico/css/pico.conditional.css";
 /* Custom styles go below */
 @layer base {
   main {
@@ -84,38 +84,12 @@
   }
 
   @media only screen and (max-width: 400px) {
-    form .container {
+    form .contact-container {
       grid-template-columns: auto;
     }
   }
 
-  form label {
-    color: blue;
-  }
-
-  form button {
-    background: #3badd4;
-    color: #ffffff;
-    min-height: 40px;
-    font-weight: bold;
-    border: none;
+  form.pico button {
     width: 100%;
-  }
-
-  form input {
-    width: 100%;
-    height: 30px;
-    border: 1px solid #3badd4;
-  }
-
-  /* form input[type="checkbox"] {
-    width: 10%;
-    height: 24px;
-  }   */
-
-  form textarea {
-    width: 100%;
-    height: 120px;
-    border: 1px solid #3badd4;
   }
 }

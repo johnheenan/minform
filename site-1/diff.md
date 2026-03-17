@@ -1,4 +1,5 @@
 ---
+layout: default-pico.njk
 eleventyNavigation:
   key: diff
   title: Diff

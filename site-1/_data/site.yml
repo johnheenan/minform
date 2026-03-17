@@ -21,6 +21,6 @@ gtm_id:
 corsprod: false
 
 #corsurl: set to server url if using cors, otherwise leave empty or as comment
-corsurl: https://example.com
+corsurl: https://hostfurl.com.au
 
 formpath: /cgi-bin/mailform.cgi
