@@ -32,11 +32,13 @@ Using htmx, a backend server is expected to handle standard POST requests and re
 
 ## Usage
 
-This is a base template that does not expect direct live use. It is expected template implementations will show live examples. 
+This is a base template intended for adaptation as a template implementation.
 
-Due to the enormous number of different usage possibilities requiring adaptation, simulating a backend server or providing a direct example of use with a backend server adds unnecessary complication and potentially confusion.
+This base template is online at at https://minform.hostfurl.com
 
-To view development examples:
+There is an example of an adaptation as a template implementation at https://minformhf.hostfurl.com.
+
+To view in a development environment:
 
 - Clone repository or download a release
 - `npm install`
