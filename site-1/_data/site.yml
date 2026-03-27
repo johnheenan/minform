@@ -12,7 +12,7 @@ scripts:
   - https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js
 
 footer: |-
-  This is a base template with source at <a href="https://github.com/johnheenan/minform" target="_blank">Minform Template</a>.
+  This is base <a href="https://github.com/johnheenan/minform" target="_blank">Minform Template</a> v{% npm_package_version %}.
   This footer can span multiple lines in `site-1/_data/site.yml` but can display as one line or more across full width. Markdown can be included.
 
 #gtm_id: YOUR_GTM_ID # leave empty or as comment if not using
