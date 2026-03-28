@@ -24,4 +24,4 @@ corsprod: false
 #corsurl: set to server url if using cors, otherwise leave empty or as comment
 corsurl: https://example.com
 
-formpath: /cgi-bin/mailform.cgi
+formpath: /cgi-bin/minform.cgi
