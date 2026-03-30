@@ -32,7 +32,7 @@ contact_unsubnews_internaltarget:
   required: "email"
 # note there is no target, internal div generated that can be repeated but first one used
 # this is different for first Contact page where an internal target div will not be 
-# generated if a target div has already been ge
+# generated if a target div has already been generated
 ---
 
 # {{ title }}
