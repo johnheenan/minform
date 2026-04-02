@@ -73,13 +73,21 @@ For the first simpler approach above, it is easy to override or overwrite the co
 
 For the second more abstract approach, these values can be overridden in frontmatter settings, as shown, and do not overwrite site.yaml values.
 
-## CSS
+## CSS and Performance
 
 The current version includes [Pico CSS](https://picocss.com/), [CSS blades](https://blades.ninja/css/) and does not inline CSS.
 
 In combination with not inling CSS, using CSS files, caching CSS files, and with cache busting hosted CSS files, this results in great performance, efficiency and simplicity.
 
 However this arrangement is penalised by web page quality rankers, such as Lighthouse, which may take a few percentage points off speed result for a barely noticeble effect for a first site view (before cache becomes invalid again).
+
+Lighthouse score from a desktop PC in Australia to https://minform.hostfurl.com/ v0.2.1 hosted in Europe on 3 April 2026:
+
+Performance 99, Accessibility 98, Best Pracices 100, SEO 100.
+
+
+![Lighthouse score](./lighthouse.png)
+
 
 We may offer an additonal CSS solution in the future.
 
