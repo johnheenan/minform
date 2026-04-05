@@ -89,7 +89,7 @@ Performance 99, Accessibility 98, Best Practices 100, SEO 100.
 ![Lighthouse score](./lighthouse.png)
 
 
-We may offer an additonal CSS solution in the future. However it is unlikely we will offer a utility-first CSS template example, which although although reduces the size of CSS files, is bewildering for the inexperienced and expands size of individual pages.
+We may offer an additonal CSS solution in the future. However it is unlikely we will offer a utility-first CSS template example, which although reduces the size of CSS files, is bewildering for the inexperienced and expands size of individual pages.
 
 
 ## Background
