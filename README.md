@@ -79,11 +79,11 @@ The current version includes [Pico CSS](https://picocss.com/), [CSS blades](http
 
 The combination of not inling CSS, using CSS files, caching CSS files, and cache busting hosted CSS files, results in great performance, efficiency and simplicity.
 
-However this arrangement is penalised by web page quality rankers, such as Lighthouse, which may take a few percentage points off performance result for a barely noticeble effect for a first site view (before cache becomes invalid again).
+However this arrangement risks penalty by web page quality rankers, such as Lighthouse, which may take a few percentage points off performance result for a barely noticeble effect for a first site view (before cache becomes invalid again).
 
-Lighthouse score from a desktop PC in Australia to https://minform.hostfurl.com/ v0.2.1 hosted in Europe on 3 April 2026:
+4x100 Lighthouse score from a desktop PC in Australia to https://minform.hostfurl.com/ v0.2.2 hosted in Europe on 5 April 2026:
 
-Performance 99, Accessibility 98, Best Practices 100, SEO 100.
+Performance 100, Accessibility 100, Best Practices 100, SEO 100.
 
 
 ![Lighthouse score](./lighthouse.png)
