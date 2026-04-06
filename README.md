@@ -56,7 +56,7 @@ Developers are expected to use browser developer console and server logs to view
 Additional site.yml file variables:
 - `corsprod`, set true to uses cors in production, default`false, no quote around true or false
 - `corsurl` set to server url if using cors with localhost development, such as `corsurl: https://example.com`
-- `formpath`: is the 'script path' and must be set for static sites, such as `formpath: /cgi-bin/mailform.cgi`
+- `formpath`: is the 'script path' and must be set for static sites, such as `formpath: /cgi-bin/minform.cgi`
 
 For localhost development it is common to set `corsurl`. However the cors server must allow cors.
 
