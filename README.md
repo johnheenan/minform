@@ -81,7 +81,7 @@ The combination of not inling CSS, using CSS files, caching CSS files, and cache
 
 However this arrangement risks penalty by web page quality rankers, such as Lighthouse, which may take a few percentage points off performance result for a barely noticeble effect for a first site view (before cache becomes invalid again).
 
-4x100 Lighthouse score from a desktop PC in Australia to https://minform.hostfurl.com/ v0.2.2 hosted in Europe on 5 April 2026:
+4x100 Lighthouse score from a desktop PC in Australia to https://minform.hostfurl.com v0.2.2 hosted in Europe on 5 April 2026:
 
 Performance 100, Accessibility 100, Best Practices 100, SEO 100.
 
@@ -102,7 +102,7 @@ For example, the Perl PSGI specification is flexible enough to allow an app to a
 
 While Nginx cannot launch CGI scripts, Nginx can interface to persistent processes using a pool of FastCGI processes. A FastCGI process can itself launch self terminating CGI scripts.
 
-`mod_perl` for Apache allows use of persistent Perl processes. However it should be kept in mind that each web request to Apache launches a new Apache process.
+`mod_perl` for Apache allows use of persistent Perl processes. However it should be kept in mind that each web request to Apache launches a new Apache thread.
 
 ### A note on back end server handling differences:
 
