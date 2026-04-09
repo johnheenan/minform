@@ -1,7 +1,5 @@
-@source "../{_includes,site-*}/**/*.{liquid,njk,md,text,yml}";
-@import "@picocss/pico/css/pico.css";
-@import "@anydigital/blades";
-@import "@anydigital/blades/theme";
+@import "@anyblades/pico";
+@import "@anyblades/blades";
 
 /* Custom styles go below */
 @layer base {

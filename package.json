@@ -10,7 +10,8 @@
   "scripts": {
     "start": "ELTY_OPTIONS='--input=./site-1' npm -w do run start",
     "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
-    "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build"
+    "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build",
+    "prestage": "curl https://raw.githubusercontent.com/anyblades/bladeswitch/refs/heads/main/admin/index.html -o ./_public/admin/index.html"
   },
   "author": "John Heenan and others",
   "license": "MIT",
@@ -22,9 +23,9 @@
   "dependencies": {
     "@11ty/eleventy": "^4.0.0-alpha.6",
     "@11ty/eleventy-navigation": "^1.0.5",
-    "@anydigital/blades": "^0.27.0-alpha.14",
-    "@anydigital/eleventy-blades": "^0.28.0-alpha.14",
-    "@picocss/pico": "^2.1.1",
+    "@anyblades/blades": "^0.28.0-alpha.2",
+    "@anyblades/eleventy-blades": "^0.28.0-beta.3",
+    "@anyblades/pico": "^2.2.0-alpha.5",
     "@tailwindcss/cli": "^4.2.1",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.2.0",
