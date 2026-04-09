@@ -1,5 +1,5 @@
 /* Base Eleventy Blades config */
-import baseConfig from "@anydigital/eleventy-blades/base-config";
+import baseConfig from "@anyblades/eleventy-blades/base-config";
 
 /* Libraries */
 import markdownIt from "markdown-it";
