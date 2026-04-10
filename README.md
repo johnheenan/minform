@@ -45,6 +45,10 @@ To view in a development environment:
 - `npm start`
 - Browse to link
 
+## Updates
+
+- `npm update` updates packages, but does not automatically update parallel `_includes_minform/blades` if blades updated.
+- `npm run syncblades` will copy and automatically edit updated relevant blades templates from `_includes/blades` used in parallel directory `_includes_minform/blades`. A shorter way is to run `npm i`.
 
 
 ## Configuration
@@ -75,7 +79,7 @@ For the second more abstract approach, these values can be overridden in frontma
 
 ## CSS and Performance
 
-The current version includes [Pico CSS](https://picocss.com/), [CSS blades](https://blades.ninja/css/) and does not inline CSS.
+The current version includes a maintained [Pico CSS](https://blades.ninja/css/pico/), [CSS blades](https://blades.ninja/css/) and does not inline CSS.
 
 The combination of not inling CSS, using CSS files, caching CSS files, and cache busting hosted CSS files, results in great performance, efficiency and simplicity.
 
@@ -86,7 +90,7 @@ However this arrangement risks penalty by web page quality rankers, such as Ligh
 Performance 100, Accessibility 100, Best Practices 100, SEO 100.
 
 
-![Lighthouse score](./lighthouse.png)
+![Lighthouse score](./minform/lighthouse.png)
 
 
 We may offer an additonal CSS solution in the future. However it is unlikely we will offer a utility-first CSS template example, which although reduces the size of CSS files, is bewildering for the inexperienced and expands size of individual pages.
