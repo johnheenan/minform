@@ -14,7 +14,7 @@
     <meta name="description" content="{{ site.description | striptags }}">
 
     {%- for href in site.styles %}
-      <link rel="stylesheet" href="{{ href }}" blocking=render />
+      <link rel="stylesheet" href="{{ href }}"  blocking=render />
     {%- endfor %}
     {# prettier-ignore-start #}<style>
       {{ site.inline_styles | d([]) | join('\n') }}

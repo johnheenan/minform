@@ -40,7 +40,7 @@ function edit_html_liquid(){
       else if(/<meta name="description"/.test(line))
         newlines.push(`    <meta name="description" content="{{ site.description | strip_html }}">`)
       else if(/<link rel="stylesheet"/.test(line))
-        newlines.push(`      <link rel="stylesheet" href="{{ href | relative_url }}" blocking=render >`)
+          newlines.push(line.replace(/(\/?>)/, " blocking=render $1"))
       else if(/{{ body }}/.test(line)) {
         newlines.push(`    {% assign nav_pages = collections.all | eleventyNavigation | dataNavigation %}`)
         newlines.push(`    {% renderFile 'blades/_nav' nav_pages %}`)
@@ -66,7 +66,7 @@ function edit_html_njk(){
       else if(/<meta name="description"/.test(line))
         newlines.push(`    <meta name="description" content="{{ site.description | striptags }}">`)
       else if(/<link rel="stylesheet"/.test(line))
-        newlines.push(`      <link rel="stylesheet" href="{{ href }}" blocking=render />`)
+          newlines.push(line.replace(/(\/?>)/, " blocking=render $1"))
       else if(/{% set for_body/.test(line)) {
         newlines.push(line)
         newlines.push(`    {%- set nav_pages = collections.all | eleventyNavigation | dataNavigation %}`)
