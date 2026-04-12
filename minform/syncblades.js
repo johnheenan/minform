@@ -1,14 +1,20 @@
-import fs from "fs";
+import fs from 'fs'
+import path from 'path'
 let errors = false
-const blades_dir = './_includes/blades';
-const minform_blades_dir = './_includes_minform/blades';
-const html_liquid_file = minform_blades_dir + '/html.liquid'
-const html_njk_file = minform_blades_dir + '/html.njk'
-const nav_liquid_file=minform_blades_dir + '/nav.liquid'
-// const default_njk_file = './_includes_minform/default.njk'
-console.log('STARTING: synchronising blades to minform');
+const blades_dir = path.join('_includes', 'blades')
+const minform_includes_dir = '_includes_minform'
+const minform_blades_dir = path.join(minform_includes_dir, 'blades')
+const html_liquid_file = path.join(minform_blades_dir, 'html.liquid')
+const html_njk_file = path.join(minform_blades_dir, 'html.njk')
+const nav_liquid_file=path.join(minform_blades_dir, 'nav.liquid')
+// const default_njk_file = path.join(minform_includes_dir, 'default.njk')
+console.log('STARTING: synchronising blades to minform')
 
 try {
+  if(!fs.existsSync(blades_dir))
+    throw new Error(`source directory ${blades_dir} not found`)
+  if(!fs.existsSync(minform_includes_dir))
+    throw new Error(`destination directory ${minform_includes_dir} not found`)
   if(fs.existsSync(minform_blades_dir))
     fs.rmSync(minform_blades_dir, {recursive:true})
   fs.cpSync(blades_dir, minform_blades_dir, {recursive:true, dereference:true})
@@ -66,7 +72,7 @@ function edit_html_njk(){
       else if(/<meta name="description"/.test(line))
         newlines.push(`    <meta name="description" content="{{ site.description | striptags }}">`)
       else if(/<link rel="stylesheet"/.test(line))
-          newlines.push(line.replace(/(\/?>)/, " blocking=render $1"))
+        newlines.push(line.replace(/(\/?>)/, " blocking=render $1"))
       else if(/{% set for_body/.test(line)) {
         newlines.push(line)
         newlines.push(`    {%- set nav_pages = collections.all | eleventyNavigation | dataNavigation %}`)
