@@ -29,7 +29,6 @@ No state or login information used.
 
 Using htmx, a backend server is expected to handle standard POST requests and return a simple HTML response for display in a `<div>` of the same page by htmx. The page is not replaced.
 
-
 ## Usage
 
 This is a base template intended for adaptation as a template implementation.
@@ -50,6 +49,23 @@ To view in a development environment:
 - `npm update` updates packages, but does not automatically update parallel `_includes_minform/blades` if blades updated.
 - `npm run syncblades` will copy and automatically edit updated relevant blades templates from `_includes/blades` used in parallel directory `_includes_minform/blades`. A shorter way is to run `npm i`.
 
+## Prerequesites
+
+Basically node/npm for a non root user with `/bin/sh` pre-installed.
+
+If you have command interpreter `/bin/sh`  (or symbolic link to), then `npm` from `node` will use this for POSIX shell operations.
+
+A POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm` is required.
+
+So, any desktop OS with a Linux kernel, macOS, Windows with WSL, any mobile or tablet OS with app which supports a POSIX compliant shell, any embedded system with Busybox and a way to install packages, such as with `curl` and piping to `sh`. Further information to be provided.
+
+What is not supported is Windows using `cmd` for `npm run`. Install WSL if using Windows.
+
+It is expected to use `rsync` for uploading files. Normally this is pre installed.
+
+While `git` is not required, it is expected for advanced use.
+
+Never install and run node/npm for user root. This may not be practical for embedded systems.
 
 ## Configuration
 
