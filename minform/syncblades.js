@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs'
 import path from 'path'
 let errors = false
@@ -106,7 +107,7 @@ function generate_nav_liquid(){
 </ul>
 </nav>
 `;
-  fs.writeFileSync(nav_liquid_file, nav_liquid_content)
+  fs.writeFileSync(nav_liquid_file, nav_liquid_content, 'utf8')
 }
 
 
