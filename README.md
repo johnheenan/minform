@@ -57,7 +57,7 @@ If you have command interpreter `/bin/sh`  (or symbolic link to), then `npm` fro
 
 A POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm` is required.
 
-So, any desktop OS with a Linux kernel, macOS, Windows with WSL, any mobile or tablet OS with app which supports a POSIX compliant shell, any embedded system with Busybox and a way to install packages, such as with `curl` and piping to `sh`. Further information to be provided.
+So, any desktop/laptop/server OS with a Linux kernel, macOS, Windows with WSL, any mobile or tablet OS with app which supports a POSIX compliant shell, any embedded system with Busybox and a way to install packages, such as with `curl` and piping to `sh`. Further information to be provided.
 
 What is not supported is Windows using `cmd` for `npm run`. Install WSL if using Windows.
 
