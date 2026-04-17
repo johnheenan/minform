@@ -53,7 +53,7 @@ To view in a development environment:
 
 Basically node/npm for a non root user with `sh` or symbolic link from `sh`, pre-installed.
 
-If you have command interpreter `sh` in `$PATH`, then the `npm run` script will use this for POSIX shell operations. 
+If you have command interpreter `sh` in `$PATH`, then the `npm run` script will use this for POSIX shell operations.
 
 What is required is a POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm`.
 
@@ -68,6 +68,11 @@ While `git` is not required, it is expected for advanced use.
 Never install and run node/npm for user root. This may not be practical for embedded systems.
 
 ### Technical Details for `ln`, `rm` and other POSIX script commands
+
+So why not replace symbolic link script command `ln` and `rm` with `node.fs` equivalents?
+
+1. If a file system does not already support POSIX style symbolic links then `node.fs` won't either.
+1. Being able to run plain POSIX shell scripts is a practical convenience.
 
 Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` for additional script commands.
 
