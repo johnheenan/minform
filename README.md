@@ -75,7 +75,7 @@ So why not replace symbolic link script command `ln` and `rm` with `node.fs` equ
 1. Being able to run plain POSIX shell scripts is a practical convenience.
 1. It is normal practice in node to run a variety of binaries with `node run`.
 
-Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` for additional script commands.
+Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` as shell for additional script commands through `child_process.exec`. The shell can be bypassed through `child_process.execFile()`.
 
 Typically a node script will have `#!/usr/bin/env node` as first line. 
 
@@ -84,6 +84,8 @@ Typically, in a non server user shell, node executes as a shell launched binary 
 On Debian this will find `/usr/bin/sh`, a symbolic link to POSIX compliant shell dash at `/usr/bin/dash`, of size 127KB. This shell executes POSIX scripts.
 
 On Debian, currently `node` itself as a binary has a size of 117MB, nearly a 1000 times larger than `dash`.
+
+The `npm run` script source code is at https://github.com/npm/cli/blob/latest/lib/commands/run.js
 
 
 ## Configuration
