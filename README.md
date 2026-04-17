@@ -57,12 +57,9 @@ If you have command interpreter `sh` in `$PATH`, then the `npm run` script will 
 
 What is required is a POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm`.
 
-So, any desktop/laptop/server OS with a Linux, BSD or UNIX like kernel, including macOS; Windows with WSL; any mobile or tablet OS with app which supports a POSIX compliant shell; any embedded system with BusyBox and a way to install packages, such as with `curl` and piping to `sh`, such as with 
-```sh
-curl -qL https://www.npmjs.com/install.sh | sh
-```
+So, any desktop/laptop/server OS with a Linux, BSD or UNIX like kernel, including macOS; Windows with WSL; any mobile or tablet OS with app which supports a POSIX compliant shell; any embedded system with BusyBox.
 
-as documented at [npm Direct Download](https://github.com/npm/cli#direct-download), which downloads and installs npm with node bundled.
+Just about any system with `curl` and `sh` can install node/npm, as shown below.
 
 What is not supported is Windows using `cmd` for `npm run`. Install WSL if using Windows.
 
@@ -72,13 +69,23 @@ While `git` is not required, it is expected for advanced use.
 
 Never install and run node/npm for user root. This may not be practical for embedded systems.
 
+### Installation of node/npm
+
+There are a variety of methods supported by OS distributions and version software.
+
+An OS independent method to install up to date node/npm is to use curl and sh such as documented at [npm Direct Download](https://github.com/npm/cli#direct-download), which downloads and installs npm with node bundled.
+
+```sh
+curl -qL https://www.npmjs.com/install.sh | sh
+```
+
 ### Technical Details for `ln`, `rm` and other POSIX script commands
 
 So why not replace symbolic link script command `ln` and `rm` with `node.fs` equivalents?
 
 1. If a file system does not already support POSIX style symbolic links then `node.fs` won't either.
-1. Being able to run plain POSIX shell scripts is a practical convenience.
-1. It is normal practice in node to run a variety of binaries with `node run`.
+1. Being able to run plain POSIX shell scripts through binary `sh` is a practical convenience.
+1. It is normal practice in node to run a variety of binaries with `npm run`, not just `sh`.
 
 Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` as shell for additional script commands through `child_process.exec`. The shell can be bypassed through `child_process.execFile()`.
 
