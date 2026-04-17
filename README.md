@@ -51,11 +51,11 @@ To view in a development environment:
 
 ## Prerequesites
 
-Basically node/npm for a non root user with `/bin/sh` pre-installed.
+Basically node/npm for a non root user with `sh` or symbolic link from `sh`, pre-installed.
 
-If you have command interpreter `/bin/sh`  (or symbolic link to), then `npm` from `node` will use this for POSIX shell operations.
+If you have command interpreter `sh` in `$PATH`, then the `npm run` script will use this for POSIX shell operations. 
 
-A POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm` is required.
+What is required is a POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm`.
 
 So, any desktop/laptop/server OS with a Linux, BSD or UNIX like kernel, including macOS; Windows with WSL; any mobile or tablet OS with app which supports a POSIX compliant shell; any embedded system with BusyBox and a way to install packages, such as with `curl` and piping to `sh`. Further information to be provided.
 
@@ -66,6 +66,19 @@ It is expected to use `rsync` for uploading files. Normally this is pre installe
 While `git` is not required, it is expected for advanced use.
 
 Never install and run node/npm for user root. This may not be practical for embedded systems.
+
+### Technical Details for `ln`, `rm` and other POSIX script commands
+
+Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` for additional script commands.
+
+Typically a node script will have `#!/usr/bin/env node` as first line. 
+
+Typically, in a non server user shell, node executes as a shell launched binary to run npm and other node scripts. Hence, the node launched `npm run` script further uses sh to launch and execute POSIX scripts.
+
+On Debian this will find `/usr/bin/sh`, a symbolic link to POSIX compliant shell dash at `/usr/bin/dash`, of size 127KB. This shell executes POSIX scripts.
+
+On Debian, currently `node` itself as a binary has a size of 117MB, nearly a 1000 times larger than `dash`.
+
 
 ## Configuration
 
