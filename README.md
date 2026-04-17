@@ -73,6 +73,7 @@ So why not replace symbolic link script command `ln` and `rm` with `node.fs` equ
 
 1. If a file system does not already support POSIX style symbolic links then `node.fs` won't either.
 1. Being able to run plain POSIX shell scripts is a practical convenience.
+1. It is normal practice in node to run a variety of binaries with `node run`.
 
 Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` for additional script commands.
 
