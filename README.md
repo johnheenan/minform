@@ -57,7 +57,7 @@ If you have command interpreter `sh` in `$PATH`, then the `npm run` script will 
 
 What is required is a POSIX compliant shell and file system for use with `npm run` that includes support for `ln` and `rm`.
 
-So, any desktop/laptop/server OS with a Linux, BSD or UNIX like kernel, including macOS; Windows with WSL; any mobile or tablet OS with app which supports a POSIX compliant shell; any embedded system with BusyBox and a way to install packages, such as with `curl` and piping to `sh`. Further information to be provided.
+So, any desktop/laptop/server OS with a Linux, BSD or UNIX like kernel, including macOS; Windows with WSL; any mobile or tablet OS with app which supports a POSIX compliant shell; any embedded system with BusyBox and a way to install packages, such as with `curl` and piping to `sh`, such as with `curl -qL https://www.npmjs.com/install.sh | sh` as documented at (npm Direct Download)[https://github.com/npm/cli#direct-download], which downloads and installs npm with node bundled.
 
 What is not supported is Windows using `cmd` for `npm run`. Install WSL if using Windows.
 
@@ -84,9 +84,6 @@ Typically, in a non server user shell, node executes as a shell launched binary 
 On Debian this will find `/usr/bin/sh`, a symbolic link to POSIX compliant shell dash at `/usr/bin/dash`, of size 127KB. This shell executes POSIX scripts.
 
 On Debian, currently `node` itself as a binary has a size of 117MB, nearly a 1000 times larger than `dash`.
-
-The `npm run` script source code is at https://github.com/npm/cli/blob/latest/lib/commands/run.js
-
 
 ## Configuration
 
