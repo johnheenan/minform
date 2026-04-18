@@ -1,4 +1,5 @@
 ---
+summary: More abstract contact from
 title: Contact 2
 navorder: 3
 
@@ -35,7 +36,7 @@ contact_unsubnews_internaltarget:
 # generated if a target div has already been generated
 ---
 
-# {{ title }}
+# {{ summary }}
 
 Same effect as for [Contact](/contact)
 

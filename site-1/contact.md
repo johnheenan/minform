@@ -1,4 +1,5 @@
 ---
+summary: Simpler contact form
 title: Contact
 navorder: 2
 

@@ -46,8 +46,7 @@ To view in a development environment:
 
 ## Updates
 
-- `npm update` updates packages, but does not automatically update parallel `_includes_minform/blades` if blades updated.
-- `npm run syncblades` will copy and automatically edit updated relevant blades templates from `_includes/blades` used in parallel directory `_includes_minform/blades`. A shorter way is to run `npm i`.
+- `npm update` updates packages
 
 ## Prerequesites
 

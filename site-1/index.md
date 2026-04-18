@@ -1,6 +1,10 @@
+---
+eleventyComputed:
+    summary: "{{ site.description }}"
+---
 # {{ site.title }}
 
-## {{ site.description }}
+## {{ summary }}
 
 'My Site' on navbar on left and on top of page is taken from `title` in file `site-1/_data/site.yml`.
 

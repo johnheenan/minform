@@ -4,12 +4,12 @@ eleventyNavigation:
   title: Diff
   order: 8
 
+summary: git diff from 'Build Awesome Start' to help adapt form, navbar and css additions to using another template
 
 ---
 
 
-## git diff from 'Build Awesome Start' to help adapt form, navbar and css additions to using another template
-
+## {{ summary }}
 
 ### Specific Changes
 
