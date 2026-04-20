@@ -1,7 +1,12 @@
 {% extends 'blades/html.njk' %}
 
 {% set content_for_header %}
-    {% if not site.prod %}<meta name="htmx-config" content='{"selfRequestsOnly": false}'>{% endif %}
+  {% if not site.nohtmx -%}
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js" defer></script>
+    {% if site.corsprod or not site.prod -%}
+    <meta name="htmx-config" content='{"selfRequestsOnly": false}'>
+    {%- endif %}
+  {%- endif %}
 {% endset %}
 
 {% block body %}

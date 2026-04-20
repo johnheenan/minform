@@ -23,6 +23,7 @@ The main addition is a minimalist approach to adding template based forms using 
 - Minimal CSS additions to support above
 - Small number of filters and shortcodes added
 - [htmx](https://htmx.org/) added to simplify templating with only 200 OK server status response handled
+- Option not to use htmx to work with traditional form submission sites without problems.
 - A cors server can be specified for use in developer mode only as well as in production mode. If cors is used then a server must be configured to handle cors requests.
 
 No state or login information used.
@@ -102,12 +103,58 @@ A simple approach for a backend is to take the form information and send it as a
 
 Developers are expected to use browser developer console and server logs to view server errors during development.
 
-Additional site.yml file variables:
+Additional `_data/site.yml` file variables:
 - `corsprod`, set true to uses cors in production, default`false, no quote around true or false
 - `corsurl` set to server url if using cors with localhost development, such as `corsurl: https://example.com`
 - `formpath`: is the 'script path' and must be set for static sites, such as `formpath: /cgi-bin/minform.cgi`
 
 For localhost development it is common to set `corsurl`. However the cors server must allow cors.
+
+## Using with tradtional third party forms submisison sites
+
+The following WILL be required in `_data/site.yml` if the cors site rejects htmx headers and/or if it is required to click on an anti spam button that uses a further remote script with a relative url. If required, the response will be on a separate page.
+- `nohtmx: true`
+
+The following MUST be set. If `corsprod` is not true then `corsurl` will not appear in production builds. After site registration the `formspath` may change to use some arbitrary string. Make sure to include `/` before this string
+- `corsprod: true`
+- `corsurl: https://example.com`
+- `formpath: /somearbitrarycharacters`
+
+
+##  Development and Production Versions
+
+`npm run start` will allow you to develop and view changes as you make them. `site.prod` is false.
+
+`npm run build` generates a production build  in `_sites`. `site.prod` is true
+
+`npm run stage` allows the production build to be viewed locally.
+
+## Using rsync to upload production builds
+
+### Uploading from command line with progress view
+
+If `user` is your SSH login name, `my.example.com` is your DNS site name and `public_html` is the directory off your home directory to upload
+
+You can put a SSH public key in `~/.ssh/authorized_keys` to avoid using a password.
+
+To upload new files or change existing files incrementally:
+```
+rsync _site/ -azvh user@my.example.com:public_html
+```
+
+To also delete files remotely that were deleted locally:
+
+```
+rsync _site/ -azvh --delete user@my.example.com:public_html
+```
+If you need to use an absolute directory path then include `/` at the start of the path after `:`, such as:
+```
+rsync _site/ -azvh user@my.example.com:/home/user/public_html
+```
+
+### Uploading from a GitHub Action
+
+An up to date and poular GitHub Action for rsync depolyment, usable in CI/CD, is documented at [Rsync Deployments Action](https://github.com/marketplace/actions/rsync-deployments-action)
 
 
 ## The two approaches for using forms
@@ -139,7 +186,6 @@ Performance 100, Accessibility 100, Best Practices 100, SEO 100.
 
 
 We may offer an additonal CSS solution in the future. However it is unlikely we will offer a utility-first CSS template example, which although reduces the size of CSS files, is bewildering for the inexperienced and expands size of individual pages.
-
 
 ## Background
 

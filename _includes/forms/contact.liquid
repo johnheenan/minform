@@ -15,12 +15,19 @@
   if urlpath == blank
     echo "MAIL POST URL IS EMPTY! THIS WILL WORK WITH STATIC SITES!"
   endif
+  if nohtmx == blank
+    assign nohtmx = site.nohtmx
+  endif
 -%}
 {% if required contains "email" %}{% assign email_required = "required" %}{% assign email = email | default: "Your Email" %}{% endif %}
 {% if required contains "name" %}{% assign name_required = "required" %}{% assign name = name | default: "Your Name" %}{% endif %}
 {% if required contains "message" %}{% assign message_required = "required" %}{% assign message = message | default: "Your Message" %}{% endif %}
 {% if required contains "agreed" %}{% assign agreed_required = "required" %}{% assign agreed = agreed | default: "Agree with privacy policy?" %}{% endif %}
-<form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}">
+{% if nohtmx and nohtmx != "false" %}
+<form method="POST" action="{{ urlpath }}" >
+{% else %}
+<form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}" >
+{% endif %}
 <div class="contact-container">
   <input type="hidden" name="required" value="{{ required }}" />
   <input type="hidden" name="subject" value="{{ title }}" />

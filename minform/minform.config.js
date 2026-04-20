@@ -31,7 +31,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("addformurl", function (contact, formurl) {
     let urlpath = formurl.formpath;
     if (formurl.corsprod == "true" || formurl.prod == "false" || !formurl.prod) urlpath = formurl.corsurl + urlpath;
-    return { ...contact, ...{ urlpath: urlpath } };
+    let nohtmx = formurl.nohtmx;
+    return { ...contact, ...{ nohtmx, urlpath } };
   });
 
   eleventyConfig.addShortcode("source", function (file) {

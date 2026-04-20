@@ -13,6 +13,7 @@ eleventyComputed:
 
   formurl:
     prod: "{{ site.prod }}"
+    nohtmx: "{{ site.nohtmx }}"
     corsprod: "{{ site.corsprod }}"
     corsurl: "{{ site.corsurl }}"
     formpath: "{{ site.formpath }}"
