@@ -6,15 +6,18 @@
   assign recipient = recipient | default: 1
   assign required = required | default: "name email message agreed"
   # urlpath may not be blank if reused
+  # blank value may mean not called through a render, so use site values
   if urlpath == blank
     assign urlpath = site.formpath
     if site.corsprod or not site.prod
       assign urlpath = urlpath | prepend: site.corsurl
     endif
   endif
+  # still blank?
   if urlpath == blank
     echo "MAIL POST URL IS EMPTY! THIS WILL WORK WITH STATIC SITES!"
   endif
+  # blank value may mean not called through a render, so use site values
   if nohtmx == blank
     assign nohtmx = site.nohtmx
   endif
