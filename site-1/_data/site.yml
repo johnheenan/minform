@@ -14,13 +14,14 @@ footer: |-
   This footer can span multiple lines in `site-1/_data/site.yml` but can display as one line or more across full width. Markdown can be included in footer.
 
 #corsprod: set true to use cors in production
-corsprod: true
+#corsprod: true
 
 #nohtmx: set to true if form submssion fails, otherwise set to false or convert to comment
 #nohtmx: true
 
 #corsurl: set to server url if using cors, otherwise leave empty or as comment, hostfurl does not permit cors
 corsurl: https://example.com
-formpath: /somearbitrarycharacters
-#formpath: /example@gmail.com
 
+#formpath: /somearbitrarycharacters
+#formpath: /example@gmail.com
+formpath: /cgi-bin/minform.cgi
