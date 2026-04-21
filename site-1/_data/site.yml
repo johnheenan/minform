@@ -13,10 +13,14 @@ footer: |-
   This is base <a href="https://github.com/johnheenan/minform" target="_blank">Minform Template</a> v{% npm_package_version %}.
   This footer can span multiple lines in `site-1/_data/site.yml` but can display as one line or more across full width. Markdown can be included in footer.
 
-#corsprod: set true to use cors in production
+#corsprod: set true to use corsurl below, if set, in production
 #corsprod: true
 
-#nohtmx: set to true if form submssion fails, otherwise set to false or convert to comment
+#if using htmx then optionally supress htmx headers, leave as commented unless necessary
+#if set to true make sure nohtmx is not set to true to continue to use htmx
+#nohtmxheaders: true
+
+#nohtmx: set to true instead if nohtmxheaders set to true does not fix form submssion failure, otherwise set to false or convert to comment
 #nohtmx: true
 
 #corsurl: set to server url if using cors, otherwise leave empty or as comment, hostfurl does not permit cors

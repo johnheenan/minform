@@ -13,10 +13,11 @@ eleventyComputed:
 
   formurl:
     prod: "{{ site.prod }}"
-    nohtmx: "{{ site.nohtmx }}"
     corsprod: "{{ site.corsprod }}"
     corsurl: "{{ site.corsurl }}"
     formpath: "{{ site.formpath }}"
+    nohtmx: "{{ site.nohtmx }}"
+    nohtmxheaders: "{{ site.nohtmxheaders }}"
 
 contact_email:
   title: "SEND MESSAGE"

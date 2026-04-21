@@ -6,7 +6,7 @@
   assign recipient = recipient | default: 1
   assign required = required | default: "name email message agreed"
   # urlpath may not be blank if reused
-  # blank value may mean not called through a render, so use site values
+  # blank value may mean not called through a render, so use consequent global site values instead
   if urlpath == blank
     assign urlpath = site.formpath
     if site.corsprod or not site.prod
@@ -17,9 +17,12 @@
   if urlpath == blank
     echo "MAIL POST URL IS EMPTY! THIS WILL WORK WITH STATIC SITES!"
   endif
-  # blank value may mean not called through a render, so use site values
+  # blank value may mean not called through a render, so use consequent global site values instead
   if nohtmx == blank
-    assign nohtmx = site.nohtmx
+    assign nohtmx = site.nohtmx | downcase
+  endif
+  if nohtmxheaders == blank
+    assign nohtmxheaders = site.nohtmxheaders | downcase
   endif
 -%}
 {% if required contains "email" %}{% assign email_required = "required" %}{% assign email = email | default: "Your Email" %}{% endif %}
@@ -27,9 +30,13 @@
 {% if required contains "message" %}{% assign message_required = "required" %}{% assign message = message | default: "Your Message" %}{% endif %}
 {% if required contains "agreed" %}{% assign agreed_required = "required" %}{% assign agreed = agreed | default: "Agree with privacy policy?" %}{% endif %}
 {% if nohtmx and nohtmx != "false" %}
-<form method="POST" action="{{ urlpath }}" >
+  <form method="POST" action="{{ urlpath }}" >
 {% else %}
-<form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}" >
+  {% if nohtmxheaders and nohtmxheaders != "false" %}
+    <form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}" hx-on::config-request="event.detail.headers=[]; event.detail.headers['Content-Type']='application/x-www-form-urlencoded'" >
+  {% else %}
+    <form hx-target="#{{ target }}" hx-swap="afterbegin" hx-post="{{ urlpath }}" >
+  {% endif %}
 {% endif %}
 <div class="contact-container">
   <input type="hidden" name="required" value="{{ required }}" />

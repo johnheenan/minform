@@ -154,8 +154,7 @@ rsync _site/ -azvh user@my.example.com:/home/user/public_html
 
 ### Uploading from a GitHub Action
 
-An up to date and poular GitHub Action for rsync depolyment, usable in CI/CD, is documented at [Rsync Deployments Action](https://github.com/marketplace/actions/rsync-deployments-action)
-
+An up to date and popular GitHub Action for rsync deployment, usable in CI/CD, is documented at [Rsync Deployments Action](https://github.com/marketplace/actions/rsync-deployments-action)
 
 ## The two approaches for using forms
 
