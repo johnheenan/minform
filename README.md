@@ -69,15 +69,29 @@ While `git` is not required, it is expected for advanced use.
 
 Never install and run node/npm for user root. This may not be practical for embedded systems.
 
-### Installation of node/npm
+### OS independent installation of node/npm
 
 There are a variety of methods supported by OS distributions and version software.
 
-An OS independent method to install up to date node/npm is to use curl and sh such as documented at [npm Direct Download](https://github.com/npm/cli#direct-download), which downloads and installs npm with node bundled.
+A cross platform, OS independent, method to install up to date node/npm is to use curl and sh such as documented at [Download Node.js®](https://nodejs.org/en/download), which downloads and installs node with npm bundled.
 
-```sh
-curl -qL https://www.npmjs.com/install.sh | sh
+### Installation of node/npm on Termux for Android
+
+Termux emulates a Debian distribution on Android. A standard installation of a desktop or server OS will include prerequisites such as curl and git.
+
+With a fresh Termux installation on Android:
+
 ```
+pkg update
+pkg upgrade
+pkg install curl git -y
+```
+
+Either use
+```
+pkg install nodejs-lts -y
+```
+or, to help keep more up to date versions of node, use [Download Node.js®](https://nodejs.org/en/download)
 
 ### Technical Details for `ln`, `rm` and other POSIX script commands
 
@@ -88,6 +102,8 @@ So why not replace symbolic link script command `ln` and `rm` with `node.fs` equ
 1. It is normal practice in node to run a variety of binaries with `npm run`, not just `sh`.
 
 Except for node as binary itself, all node/npm software runs as a script of node binary itself and npm software itself is a set of node scripts. The 'npm run' command is a node npm script that further uses `sh` as shell for additional script commands through `child_process.exec`. The shell can be bypassed through `child_process.execFile()`.
+
+`npx`, which is installed with npm, is also a set of node scripts to load and run binaries without installing them first with `npm`.
 
 Typically a node script will have `#!/usr/bin/env node` as first line. 
 
@@ -110,7 +126,7 @@ Additional `_data/site.yml` file variables:
 
 For localhost development it is common to set `corsurl`. However the cors server must allow cors.
 
-## Using with tradtional third party forms submisison sites
+## Using with traditional third party forms submission sites
 
 The following WILL be required in `_data/site.yml` if the cors site rejects htmx headers and/or if it is required to click on an anti spam button that uses a further remote script with a relative url. If required, the response will be on a separate page.
 - `nohtmx: true`
@@ -119,6 +135,9 @@ The following MUST be set. If `corsprod` is not true then `corsurl` will not app
 - `corsprod: true`
 - `corsurl: https://example.com`
 - `formpath: /somearbitrarycharacters`
+
+Instead of using `nohtmx: true`, a less extreme option that does not put response on a separate page, may work instead:
+- `nohtmxheaders`
 
 
 ##  Development and Production Versions
@@ -151,6 +170,20 @@ If you need to use an absolute directory path then include `/` at the start of t
 ```
 rsync _site/ -azvh user@my.example.com:/home/user/public_html
 ```
+
+The included `-v` option shows files uploaded. Add in `--progress` to show progress of individual files. For files that already exist, incremental deltas of files are uploaded, not the full file.
+
+After a rebuild, files will change due to cache busting, even with no content change. Rsync effciently finds, includes and uploads these changes without including the full file.
+
+With heavy editing of sites with many files, consider turning off cache busting and turning on again when finished. If turning off cache busting, do not include `--delete` with rsync until cache busting is turned on again.
+
+To turn off cache busting, comment out line
+```
+  eleventyConfig.addPlugin(eleventyAutoCacheBuster);
+```
+near start in `minform/minform.config.js` with `//` at start of line.
+
+Depending on web server, turning off cache busting may prevent site updates from being viewed immediately with a browser refresh, unless a hard refresh or cache emptying with hard refresh is used.
 
 ### Uploading from a GitHub Action
 
