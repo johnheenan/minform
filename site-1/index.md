@@ -68,8 +68,8 @@ The footer can also be edited in the same file from `footer` and can be multilin
 ## Advanced Topics
 
 
-### Using GitHub Actions to update site automatically
-- Setup to allow automatic site update triggered by a push (save to non local Git repository)
+### Using CI/CD to update site automatically
+- Setup to allow automatic site update triggered by a push (save to non local Git repository) using CI/CD (Continuous Integration/Continuous Delivery and/or Deployment)
 - TBD
 
 

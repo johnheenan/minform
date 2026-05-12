@@ -2,7 +2,7 @@
 eleventyNavigation:
   key: diff
   title: Diff
-  order: 8
+  order: 9
 
 summary: git diff from 'Build Awesome Start' to help adapt form, navbar and css additions to using another template
 

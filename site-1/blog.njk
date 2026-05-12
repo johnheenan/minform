@@ -1,0 +1,20 @@
+---
+summary: Blog Index
+title: Blog
+navorder: 10
+eleventyNavigation:
+    key: blog
+    title: Blog 
+    order: 8
+---
+
+ <h2>{{ summary }}</h2>
+
+{% for page in collections.all %}
+  {% if page.url.startsWith('/blog/') and page.url != '/blog/' %}
+    <a href="{{ page.url }}" role="button" class="outline">
+      <h3>{{ page.data.title }}</h3>
+      {{ page.data.description }}
+    </a>
+  {% endif %}
+{% endfor %}

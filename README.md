@@ -30,6 +30,9 @@ No state or login information used.
 
 Using htmx, a backend server is expected to handle standard POST requests and return a simple HTML response for display in a `<div>` of the same page by htmx. The page is not replaced.
 
+Using the same techniques as [anyblades/subtle](https://github.com/anyblades/subtle), the
+sample starter blog pages from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) have been included in `/blog`.
+
 ## Usage
 
 This is a base template intended for adaptation as a template implementation.
@@ -158,17 +161,17 @@ You can put a SSH public key in `~/.ssh/authorized_keys` to avoid using a passwo
 
 To upload new files or change existing files incrementally:
 ```
-rsync _site/ -azvh user@my.example.com:public_html
+rsync _site/ -rzvh user@my.example.com:public_html
 ```
 
 To also delete files remotely that were deleted locally:
 
 ```
-rsync _site/ -azvh --delete user@my.example.com:public_html
+rsync _site/ -rzvh --delete user@my.example.com:public_html
 ```
 If you need to use an absolute directory path then include `/` at the start of the path after `:`, such as:
 ```
-rsync _site/ -azvh user@my.example.com:/home/user/public_html
+rsync _site/ -rzvh user@my.example.com:/home/user/public_html
 ```
 
 The included `-v` option shows files uploaded. Add in `--progress` to show progress of individual files. For files that already exist, incremental deltas of files are uploaded, not the full file.
