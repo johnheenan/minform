@@ -57,6 +57,6 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("displayDate", (dateObj) => {
     return format(dateObj, 'MMM do yyyy')
-  });  
-  
+  });
+
 }

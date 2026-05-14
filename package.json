@@ -12,7 +12,7 @@
     "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
     "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build",
     "prestage": "curl https://raw.githubusercontent.com/anyblades/bladeswitch/refs/heads/main/admin/index.html -o ./_public/admin/index.html",
-    "dlbaseblog": "curl -L https://github.com/11ty/eleventy-base-blog/tarball/main | tar -xz --strip-components=2 --wildcards -C ./site-1 '*/content/blog/*.md' '*/content/blog/*.png' && sed -i 's/\\.md//g' ./site-1/blog/secondpost.md && sed -i 's/blog\\/third/\\/blog\\/third/g' ./site-1/blog/secondpost.md"
+    "dlbaseblog": "curl -L https://github.com/11ty/eleventy-base-blog/tarball/main | tar -xz --strip-components=2 --wildcards -C ./site-1 '*/content/blog/*.md' '*/content/blog/*.png' && sed -i 's/\\.md//g;s/blog\\/third/\\/blog\\/third/' ./site-1/blog/secondpost.md"
   },
   "author": "John Heenan and others",
   "license": "MIT",
