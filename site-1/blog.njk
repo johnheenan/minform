@@ -10,11 +10,11 @@ eleventyNavigation:
 
  <h2>{{ summary }}</h2>
 
-{% for page in collections.all %}
+{% for page in collections.all | reverse %}
   {% if page.url.startsWith('/blog/') and page.url != '/blog/' %}
     <a href="{{ page.url }}" role="button" class="outline">
       <h3>{{ page.data.title }}</h3>
-      {{ page.data.description }}
+      {{ page.data.date | displayDate }}, {{ page.data.description }}
     </a>
   {% endif %}
 {% endfor %}
