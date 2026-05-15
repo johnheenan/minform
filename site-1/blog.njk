@@ -16,5 +16,6 @@ eleventyNavigation:
       <h3>{{ page.data.title }}</h3>
       {{ page.data.date | displayDate }}, {{ page.data.description }}
     </a><br>
+    {% for tag in page.data.tags %}[{{- tag -}}]{%- if not loop.last -%}, {% endif -%}{% endfor %}<br>
   {% endif %}
 {% endfor %}
