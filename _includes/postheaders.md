@@ -2,7 +2,7 @@
 
 ## {{ description }}
 
-{{ date | displayDate }}
+{% displayDate date %}
 
 {% for tag in tags %}
 [{{- tag -}}]{%- unless forloop.last -%}, {%- endunless -%}

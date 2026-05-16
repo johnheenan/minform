@@ -14,7 +14,7 @@ eleventyNavigation:
   {% if page.url.startsWith('/blog/') and page.url != '/blog/' %}
     <a href="{{ page.url }}" role="button" class="outline">
       <h3>{{ page.data.title }}</h3>
-      {{ page.data.date | displayDate }}, {{ page.data.description }}
+      {% displayDate page.data.date, 'MMM do yyyy' %}, {{ page.data.description }}
     </a><br>
     {% for tag in page.data.tags %}[{{- tag -}}]{%- if not loop.last -%}, {% endif -%}{% endfor %}<br>
   {% endif %}

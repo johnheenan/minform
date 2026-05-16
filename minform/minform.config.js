@@ -55,8 +55,10 @@ export default function (eleventyConfig) {
     return process.env.npm_package_version;
   });
 
-  eleventyConfig.addFilter("displayDate", (dateObj) => {
-    return format(dateObj, 'MMM do yyyy')
+  eleventyConfig.addShortcode("displayDate", (dateObj, dateformat) => {
+    if (!dateformat) dateformat = 'dd MMMM, yyyy'
+    console.log(dateformat)    
+    return format(dateObj, dateformat)
   });
 
 }
