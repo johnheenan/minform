@@ -31,7 +31,7 @@ No state or login information used.
 Using htmx, a backend server is expected to handle standard POST requests and return a simple HTML response for display in a `<div>` of the same page by htmx. The page is not replaced.
 
 Using similar techniques as [anyblades/subtle](https://github.com/anyblades/subtle), the
-sample starter blog pages from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) have been included in `/blog` and some additions made.
+sample starter blog pages from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) have been included in `/blog` and some additions made. In addition code from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) used and adapted.
 
 ## Usage
 

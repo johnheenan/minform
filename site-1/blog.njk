@@ -8,14 +8,18 @@ eleventyNavigation:
     order: 8
 ---
 
- <h2>{{ summary }}</h2>
+<h2>{{ summary }}</h2>
 
-{% for page in collections.all | reverse %}
-  {% if page.url.startsWith('/blog/') and page.url != '/blog/' %}
-    <a href="{{ page.url }}" role="button" class="outline">
-      <h3>{{ page.data.title }}</h3>
-      {% displayDate page.data.date, 'MMM do yyyy' %}, {{ page.data.description }}
-    </a><br>
-    {% for tag in page.data.tags %}[{{- tag -}}]{%- if not loop.last -%}, {% endif -%}{% endfor %}<br>
-  {% endif %}
+<h3><a href="/tags">All Tags</a></h3>
+
+{% set blogs=collections.all | reverse | filterBlogs %}
+{% for page in blogs %}
+  <a href="{{ page.url }}" role="button" class="outline">
+    <h3>{{ page.data.title }}</h3>
+    {% displayDate page.data.date, 'MMM do yyyy' %}, {{ page.data.description }}
+  </a><br>
+  {% for tag in page.data.tags | sortAlphabetically %}
+    {% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+    [<a href="{{ tagUrl }}">{{ tag }}</a>]{%- if not loop.last -%}, {% endif -%}
+  {% endfor %}<br>
 {% endfor %}

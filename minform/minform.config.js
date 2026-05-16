@@ -57,8 +57,35 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addShortcode("displayDate", (dateObj, dateformat) => {
     if (!dateformat) dateformat = 'dd MMMM, yyyy'
-    console.log(dateformat)    
     return format(dateObj, dateformat)
   });
 
+	// Return the keys used in an object
+	eleventyConfig.addFilter("getKeys", target => {
+		return Object.keys(target);
+	});
+
+	eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
+		return (tags || []).filter(tag => ["all", "posts"].indexOf(tag) === -1);
+	});
+
+	eleventyConfig.addFilter("sortAlphabetically", strings =>
+		(strings || []).sort((b, a) => b.localeCompare(a))
+  );
+
+	eleventyConfig.addFilter("filterBlogs", posts =>
+	  (posts || []).filter(post => post.url.startsWith('/blog/') && post.url != '/blog/')
+  );
+
+	eleventyConfig.addFilter("paginatePost", (posts, url) => {
+    const pagination={}
+    for (let i = 0; i < posts.length; i++) {
+      if(posts[i].url == url){
+        if(i!=0) pagination.previous={url: posts[i-1].url, title: posts[i-1].data.title}
+        if(i<(posts.length-1)) pagination.next={url: posts[i+1].url, title: posts[i+1].data.title}
+        break
+      }
+    }
+    return pagination
+  });
 }

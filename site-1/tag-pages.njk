@@ -1,0 +1,31 @@
+---js
+// <script>
+const pagination = {
+	data: "collections",
+	size: 1,
+	alias: "tag",
+	filter: ["all", "posts"],
+	// addAllPagesToCollections: true,
+};
+
+const eleventyExcludeFromCollections = true;
+
+const eleventyComputed = {
+	title: "Tagged '{{ tag }}'",
+	permalink: function(data) {
+		// If DuplicatePermalinkOutputError occurs, check that no tag occurs
+		// with differing case, e.g. "RSS" and "rss".
+		return `/tags/${this.slugify(data.tag)}/`;
+	}
+};
+---
+<h1>Tagged “{{ tag }}”</h1>
+
+<ol>
+{%- for post in collections[ tag ] | reverse -%}
+	<li>
+		{% displayDate post.date, 'd MMM yy'%} <a href="{{ post.url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+	</li>
+{%- endfor %}
+</ol>
+<h2><a href="/tags">All Tags</a></h2>
