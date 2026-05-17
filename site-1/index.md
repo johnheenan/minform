@@ -76,3 +76,7 @@ The footer can also be edited in the same file from `footer` and can be multilin
 ### Setting up live site editing as a CMS with no local repository
 - [Sveltia CMS]( https://sveltiacms.app/en/) is included. Behind the scenes, uses GitHub Actions (or actions with another GIT service provider), without exposure.
 - TBD
+
+
+### Making your own template
+- Part of the first `git diff` for this template with template it was developed from can be viewed at [first diff](/diff).

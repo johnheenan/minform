@@ -1,5 +1,5 @@
 ---
-eleventyNavigation:
+eleventyNavigation00:
   key: diff
   title: Diff
   order: 9
