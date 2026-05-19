@@ -50,7 +50,7 @@ To view in a development environment:
 
 ## Updates
 
-- `npm update` updates packages
+- `npm update --save` updates packages
 
 ## Prerequesites
 

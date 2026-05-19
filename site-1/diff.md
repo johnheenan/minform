@@ -1,4 +1,5 @@
 ---
+title: Diff
 eleventyNavigation00:
   key: diff
   title: Diff

@@ -1,6 +1,6 @@
 ---
 minform: '[minform](https://gitub.cmm/johnheenan/minform)'
-
+title: About
 summary: About
 
 eleventyNavigation:

@@ -2,6 +2,7 @@ import fs from "fs"
 import eleventyAutoCacheBuster from "eleventy-auto-cache-buster"
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 import {format} from "date-fns"
+import dotenv from "dotenv"
 
 /**
  * Additional eleventy configuration
@@ -10,7 +11,8 @@ import {format} from "date-fns"
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
   eleventyConfig.addPlugin(eleventyAutoCacheBuster);
-
+  eleventyConfig.addGlobalData("env", dotenv.config().parsed); // just assign contents of .env file to global env without duplicating process.env
+  
   eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
 		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
 			return false;

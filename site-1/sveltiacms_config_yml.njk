@@ -1,0 +1,67 @@
+---
+permalink: "/admin/config.yml"
+layout: false
+eleventyExcludeFromCollections: true
+---
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+
+backend:
+{%- if env.SITE1_CMS_NAME %}
+  name: {{ env.SITE1_CMS_NAME }}{% endif %}
+{%- if env.SITE1_CMS_REPO %}
+  repo: {{ env.SITE1_CMS_REPO }}{% endif %}
+{%- if env.SITE1_CMS_BRANCH %}
+  branch: {{ env.SITE1_CMS_BRANCH }}{% endif %}
+{%- if env.SITE1_CMS_BASE_URL %}
+  base_url: {{ env.SITE1_CMS_BASE_URL }}{% endif %}
+{%- if env.SITE1_CMS_API_ROOT %}
+  api_root: {{ env.SITE1_CMS_API_ROOT }}{% endif %}
+{%- if env.SITE1_CMS_AUTH_ENDPOINT %}
+  auth_endpoint: {{ env.SITE1_CMS_AUTH_ENDPOINT }}{% endif %}
+{%- if env.CMS_APP_ID %}
+  app_id: {{ env.CMS_APP_ID }}{% endif %}
+{%- raw -%}
+  squash_merges: true
+  commit_messages:
+    create: 'chore(cms): create "{{path}}"'
+    update: 'chore(cms): update "{{path}}"'
+    delete: 'chore(cms): delete "{{path}}"'
+    uploadMedia: 'chore(cms): upload media "{{path}}"'
+    deleteMedia: 'chore(cms): delete media "{{path}}"'
+
+# Global configuration
+public_folder: /_public/media
+#media_folder: /site-1/_public/media
+media_folder: site-1/_public/media
+output:
+  omit_empty_optional_fields: true
+
+collections:
+  - name: content
+    label: Content
+    public_folder: /
+    folder: /site-1
+    media_folder: /site-1
+    slug: "{{fields._slug}}"
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Summary, name: summary, widget: string, required: false }
+      - { label: Body, name: body, widget: richtext, required: false }
+      - { label: Date, name: date, widget: datetime, type: date, required: false }
+      - { label: Navorder, name: navorder, widget: number, required: false }
+      - { label: Draft, name: draft, widget: boolean, required: false }
+  - name: blog
+    label: Blog
+    public_folder: /blog
+    folder: /site-1/blog
+    media_folder: /site-1/blog
+    slug: "{{fields._slug}}"
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Description, name: description, widget: string, required: false }
+      - { label: Body, name: body, widget: richtext, required: false }
+      - { label: Date, name: date, widget: datetime, type: date, required: false  }
+      - { label: Tags, name: tags, widget: list, required: false }
+      - { label: Draft, name: draft, widget: boolean, required: false }
+{% endraw %}

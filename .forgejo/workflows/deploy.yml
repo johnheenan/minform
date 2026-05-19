@@ -1,0 +1,47 @@
+# has example of using a cache and installing rsync: https://home.futuretim.io/posts/hugo_build_and_post/
+# has exaple for woodpecker: https://www.bentasker.co.uk/posts/blog/the-internet/publishing-my-sites-using-woodpecker-ci.html
+
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy_site:
+    runs-on: docker
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo SITE1_CMS_NAME=${{ secrets.CMS_NAME }} >> .env
+          echo SITE1_CMS_REPO=${{ secrets.CMS_REPO }} >> .env
+          echo SITE1_CMS_BASE_URL=${{ secrets.CMS_BASE_URL }} >> .env
+          echo SITE1_CMS_API_ROOT=${{ secrets.CMS_API_ROOT }} >> .env
+          echo SITE1_CMS_AUTH_ENDPOINT=${{ secrets.CMS_AUTH_ENDPOINT }} >> .env
+          echo SITE1_CMS_APP_ID=${{ secrets.CMS_APP_ID }} >> .env
+          echo SITE1_CMS_BRANCH=${{ secrets.CMS_BRANCH }} >> .env
+          echo finished constructing .env file
+          #cat .env
+          #echo REMOTE_PATH=${{ secrets.REMOTE_PATH }}
+          #echo REMOTE_HOST=${{ secrets.REMOTE_HOST }}
+          #echo REMOTE_USER=${{ secrets.REMOTE_USER }}
+
+      - name: Build Assets
+        run: |
+          npm install
+          npm run build
+
+      - name: Rsync Deploy
+        uses: https://github.com/burnett01/rsync-deployments@v8      
+        with:
+          switches: -avzr --delete
+          path: _site/
+          remote_path: ${{ secrets.REMOTE_PATH }} # ex: public_html
+          remote_host: ${{ secrets.REMOTE_HOST }} # ex: example.com
+          remote_user: ${{ secrets.REMOTE_USER }} # ex: username
+          remote_key:  ${{ secrets.REMOTE_PRIVATE_KEY }}
