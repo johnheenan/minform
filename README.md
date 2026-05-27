@@ -1,6 +1,14 @@
 
 # Minform
 
+## Migration to Forgejo Git Server warning
+
+If you migrate this repository to a Forgejo Git server then it will attempt to start a Forgejo Action. Public examples of Forgejo servers are https://codeberg.org/ and https://codefloe.com/
+
+There is a mechanism to place in place to stop the Forgejo Action early. Forgejo Actions should be disabled following migration until further setup.
+
+More information to follow. 
+
 ## Website template starter with markdown and minimalist forms
 
 A very minimalist approach to adding in forms templating to a website starter template that supports markdown.
