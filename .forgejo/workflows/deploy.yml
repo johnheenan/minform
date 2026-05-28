@@ -9,6 +9,21 @@ jobs:
   deploy_site:
     runs-on: docker
     steps:
+      - name: Check if should run deploy action
+        run: |
+          DEPLOY=${{ vars.DEPLOY }}
+          if [ "$DEPLOY" -ne 1 ]; then
+            if [ -z "$DEPLOY"  ]; then
+              echo "vars.DEPLOY does not exist or is empty, it must be set to '1' to continue deploy"
+            else
+              echo "vars.DEPLOY must be set to '1' to continue deploy, it is set to '$DEPLOY'"
+            fi
+            echo "deploy action stopping"
+            exit 1
+          else
+            echo "vars.DEPLOY is set to '1', deploy action continuing"
+          fi
+
       - name: Checkout Code
         uses: actions/checkout@v6
 

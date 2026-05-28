@@ -7,7 +7,7 @@ If you migrate this repository to a Forgejo Git server then it will attempt to s
 
 There is a mechanism to place in place to stop the Forgejo Action early. Forgejo Actions should be disabled following migration until further setup.
 
-More information to follow. 
+More information to follow.
 
 ## Website template starter with markdown and minimalist forms
 
@@ -17,7 +17,7 @@ Provides examples of website template based on markdown and forms for easy autom
 
 Minform is a public website template using [11ty](https://11ty.dev) static website generator.
 
-Minform is open source with a permissive license. 
+Minform is open source with a permissive license.
 
 Minform is a public web template built on  [Build Awesome Starter](https://github.com/anydigital/build-awesome-starter) version [v0.8.1](https://github.com/anydigital/build-awesome-starter/releases/tag/v0.8.1) with the following additions:
 
