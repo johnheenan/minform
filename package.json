@@ -8,10 +8,10 @@
     "do"
   ],
   "scripts": {
-    "start": "ELTY_OPTIONS='--input=./site-1' npm -w do run start",
-    "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
-    "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build",
-    "prestage": "curl https://raw.githubusercontent.com/anyblades/bladeswitch/refs/heads/main/admin/index.html -o ./_public/admin/index.html",
+    "do": "ELTY_OPTIONS=--input=./site-1 npm -w do run",
+    "start": "npm run do -- start:with-tw",
+    "stage": "npm run do -- stage",
+    "build": "npm run do -- build",
     "dlbaseblog": "curl -L https://github.com/11ty/eleventy-base-blog/tarball/main | tar -xz --strip-components=2 --wildcards -C ./site-1 '*/content/blog/*.md' '*/content/blog/*.png' && sed -i 's/\\.md//g;s/blog\\/third/\\/blog\\/third/' ./site-1/blog/secondpost.md",
     "upload": "export $(cat .env | sed '/^ *#/d' | xargs) && [ -z \"$SITE1_REMOTE_DEST\" ] && echo '$SITE1_REMOTE_DEST' not in .env, see .env.sample for example || rsync -avzr --delete _site/ $SITE1_REMOTE_DEST"
   },
@@ -26,14 +26,9 @@
   "dependencies": {
     "@11ty/eleventy": "4.0.0-alpha.7",
     "@11ty/eleventy-img": "^6.0.4",
-    "@11ty/eleventy-navigation": "^1.0.5",
-    "@anyblades/blades": "^2.2.1",
-    "@anyblades/eleventy-blades": "^0.28.0-beta.4",
+    "@anyblades/eleventy-blades-base": "^0.4.5",
     "@anyblades/pico": "^2.2.2",
     "@tailwindcss/cli": "^4.3.0",
-    "date-fns": "^4.3.0",
-    "markdown-it": "^14.2.0",
-    "markdown-it-anchor": "^9.2.0",
-    "markdown-it-attrs": "^4.5.0"
+    "date-fns": "^4.3.0"
   }
 }
