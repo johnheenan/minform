@@ -19,8 +19,8 @@ backend:
   api_root: {{ env.SITE1_CMS_API_ROOT }}{% endif %}
 {%- if env.SITE1_CMS_AUTH_ENDPOINT %}
   auth_endpoint: {{ env.SITE1_CMS_AUTH_ENDPOINT }}{% endif %}
-{%- if env.CMS_APP_ID %}
-  app_id: {{ env.CMS_APP_ID }}{% endif %}
+{%- if env.SITE1_CMS_APP_ID %}
+  app_id: {{ env.SITE1_CMS_APP_ID }}{% endif %}
 {%- raw -%}
   squash_merges: true
   commit_messages:
