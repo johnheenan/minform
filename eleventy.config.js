@@ -1,5 +1,5 @@
 /* Base Eleventy Blades config */
-import baseConfig from "@anyblades/eleventy-blades/base-config";
+import baseConfig from "@anyblades/eleventy-blades-base";
 
 /* Libraries */
 import markdownIt from "markdown-it";
@@ -13,8 +13,8 @@ import minformConfig from "./minform/minform.config.js";
  * @param {Object} eleventyConfig - The Eleventy configuration object
  * @returns {Object} The Eleventy configuration object
  */
-export default function (eleventyConfig) {
-  baseConfig(eleventyConfig);
+export default async function (eleventyConfig) {
+  await baseConfig(eleventyConfig);
 
   // Override defaults:
   const bladesPlugin = eleventyConfig.plugins.find((p) => p.plugin.name === "eleventyBladesPlugin");
