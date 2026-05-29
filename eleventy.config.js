@@ -14,13 +14,10 @@ import minformConfig from "./minform/minform.config.js";
  * @returns {Object} The Eleventy configuration object
  */
 export default async function (eleventyConfig) {
-  await baseConfig(eleventyConfig);
+  await baseConfig(eleventyConfig, {
+    plugins: { "@anyblades/eleventy-blades": { mdAutoRawTags: false } },
+  });
 
-  // Override defaults:
-  const bladesPlugin = eleventyConfig.plugins.find((p) => p.plugin.name === "eleventyBladesPlugin");
-  if (bladesPlugin) {
-    bladesPlugin.options.mdAutoRawTags = false;
-  }
   eleventyConfig.setLiquidOptions({ dynamicPartials: true, jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownIt().use(markdownItAnchor));
 
