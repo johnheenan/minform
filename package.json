@@ -8,7 +8,7 @@
     "do"
   ],
   "scripts": {
-    "do": "ELTY_OPTIONS=--input=./site-1 npm -w do run",
+    "do": "ELTY_OPTIONS=--input=./site-1 TW_OPTIONS='-i ./_styles/styles.css -o ./_public/styles.css' npm -w do run",
     "start": "npm run do -- start:with-tw",
     "stage": "npm run do -- stage",
     "build": "npm run do -- build",
