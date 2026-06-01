@@ -1,6 +1,6 @@
 {
   "name": "Minform",
-  "version": "0.5.2",
+  "version": "0.5.3.beta.1",
   "description": "Website Template Minimalist Forms",
   "private": true,
   "type": "module",
@@ -26,9 +26,9 @@
   "dependencies": {
     "@11ty/eleventy": "4.0.0-alpha.7",
     "@11ty/eleventy-img": "^6.0.4",
-    "@anyblades/eleventy-blades-base": "^0.4.6",
+    "@anyblades/eleventy-blades-base": "^0.4.8",
     "@anyblades/pico": "^2.2.2",
     "@tailwindcss/cli": "^4.3.0",
-    "date-fns": "^4.3.0"
+    "date-fns": "^4.4.0"
   }
 }

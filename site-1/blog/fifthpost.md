@@ -1,8 +1,10 @@
----js
-const title = "This is a draft fifth post";
-const date = "2023-01-23";
-const description = "Draft of my fifth post that does nor appear in production";
-const draft = true;
+---
+title: This is a draft fifth post
+date: 2023-01-23
+description: Draft of my fifth post that does nor appear in production
+draft: true
+tags:
+  - draft
 ---
 This is a draft post.
 
