@@ -22,9 +22,9 @@ The footer can also be edited in the same file from `footer` and can be multilin
 
 ### Minform Base Template (This Site)
 
-- <a href="https://minform.hostfurl.com" target="_blank">Minform</a> base demonstration.
-- Source of latest public release at <a href="https://github.com/johnheenan/minform" target="_blank">Minform Template</a>
-- This version is v{% npm_package_version %}, which may be same, behind or ahead of <a href="https://github.com/johnheenan/minform/releases/latest" target="_blank">latest public release</a>
+- [Minform](https://minform.hostfurl.com) base demonstration.
+- Source of latest public release at [Minform Template](https://github.com/johnheenan/minform)
+- This version is v{% npm_package_version %}, which may be same, behind or ahead of [latest public release](https://github.com/johnheenan/minform/releases/latest)
 
 
 
@@ -32,9 +32,10 @@ The footer can also be edited in the same file from `footer` and can be multilin
 
 #### Minformhf by Hostfurl
 
-- <a href="https://minformhf.hostfurl.com" target="_blank">Minformhf</a>  implmentation of Minform by Hostfurl
-- Source of latest public release at <a href="https://github.com/hostfurl/minformhf" target="_blank">Minformhf by Hostfurl</a>
-- The demonstrated version may be same, behind or ahead of <a href="https://github.com/hostfurl/minformhf/releases/latest" target="_blank">latest public release</a>
+- [Minformhf](https://minformhf.hostfurl.com)  implmentation of Minform by Hostfurl
+- Source of latest public release at [Minformhf by Hostfurl](https://github.com/hostfurl/minformhf)
+- The demonstrated version may be same, behind or ahead of [latest public release](https://github.com/hostfurl/minformhf/releases/latest)
+
 
 
 ### Raise an issue to have your own implementation included
