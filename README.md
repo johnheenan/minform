@@ -225,7 +225,7 @@ However this arrangement risks penalty by web page quality rankers, such as Ligh
 Performance 100, Accessibility 100, Best Practices 100, SEO 100.
 
 
-![Lighthouse score](./minform/lighthouse.png)
+![Lighthouse score](lighthouse.png)
 
 
 We may offer an additonal CSS solution in the future. However it is unlikely we will offer a utility-first CSS template example, which although reduces the size of CSS files, is bewildering for the inexperienced and expands size of individual pages.
