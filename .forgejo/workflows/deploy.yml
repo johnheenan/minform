@@ -30,13 +30,13 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo SITE1_CMS_NAME=${{ secrets.CMS_NAME }} >> .env
-          echo SITE1_CMS_REPO=${{ secrets.CMS_REPO }} >> .env
-          echo SITE1_CMS_BASE_URL=${{ secrets.CMS_BASE_URL }} >> .env
-          echo SITE1_CMS_API_ROOT=${{ secrets.CMS_API_ROOT }} >> .env
-          echo SITE1_CMS_AUTH_ENDPOINT=${{ secrets.CMS_AUTH_ENDPOINT }} >> .env
-          echo SITE1_CMS_APP_ID=${{ secrets.CMS_APP_ID }} >> .env
-          echo SITE1_CMS_BRANCH=${{ secrets.CMS_BRANCH }} >> .env
+          echo CMS_NAME=${{ secrets.CMS_NAME }} >> .env
+          echo CMS_REPO=${{ secrets.CMS_REPO }} >> .env
+          echo CMS_BASE_URL=${{ secrets.CMS_BASE_URL }} >> .env
+          echo CMS_API_ROOT=${{ secrets.CMS_API_ROOT }} >> .env
+          echo CMS_AUTH_ENDPOINT=${{ secrets.CMS_AUTH_ENDPOINT }} >> .env
+          echo CMS_APP_ID=${{ secrets.CMS_APP_ID }} >> .env
+          echo CMS_BRANCH=${{ secrets.CMS_BRANCH }} >> .env
           echo finished constructing .env file
           #cat .env
           #echo REMOTE_PATH=${{ secrets.REMOTE_PATH }}

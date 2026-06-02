@@ -7,20 +7,20 @@ eleventyExcludeFromCollections: true
 
 
 backend:
-{%- if env.SITE1_CMS_NAME %}
-  name: {{ env.SITE1_CMS_NAME }}{% endif %}
-{%- if env.SITE1_CMS_REPO %}
-  repo: {{ env.SITE1_CMS_REPO }}{% endif %}
-{%- if env.SITE1_CMS_BRANCH %}
-  branch: {{ env.SITE1_CMS_BRANCH }}{% endif %}
-{%- if env.SITE1_CMS_BASE_URL %}
-  base_url: {{ env.SITE1_CMS_BASE_URL }}{% endif %}
-{%- if env.SITE1_CMS_API_ROOT %}
-  api_root: {{ env.SITE1_CMS_API_ROOT }}{% endif %}
-{%- if env.SITE1_CMS_AUTH_ENDPOINT %}
-  auth_endpoint: {{ env.SITE1_CMS_AUTH_ENDPOINT }}{% endif %}
-{%- if env.SITE1_CMS_APP_ID %}
-  app_id: {{ env.SITE1_CMS_APP_ID }}{% endif %}
+{%- if env.CMS_NAME %}
+  name: {{ env.CMS_NAME }}{% endif %}
+{%- if env.CMS_REPO %}
+  repo: {{ env.CMS_REPO }}{% endif %}
+{%- if env.CMS_BRANCH %}
+  branch: {{ env.CMS_BRANCH }}{% endif %}
+{%- if env.CMS_BASE_URL %}
+  base_url: {{ env.CMS_BASE_URL }}{% endif %}
+{%- if env.CMS_API_ROOT %}
+  api_root: {{ env.CMS_API_ROOT }}{% endif %}
+{%- if env.CMS_AUTH_ENDPOINT %}
+  auth_endpoint: {{ env.CMS_AUTH_ENDPOINT }}{% endif %}
+{%- if env.CMS_APP_ID %}
+  app_id: {{ env.CMS_APP_ID }}{% endif %}
 {%- raw -%}
   squash_merges: true
   commit_messages:
@@ -50,7 +50,7 @@ collections:
       - { label: Body, name: body, widget: richtext, required: false }
       - { label: Date, name: date, widget: datetime, type: date, required: false }
       - { label: Navorder, name: navorder, widget: number, required: false }
-      - { label: Draft, name: draft, widget: boolean, required: false }
+      - { label: Draft, name: ``draft, widget: boolean, required: false }
   - name: blog
     label: Blog
     public_folder: /blog

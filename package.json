@@ -13,7 +13,7 @@
     "stage": "npm run do -- stage",
     "build": "npm run do -- build",
     "dlbaseblog": "curl -L https://github.com/11ty/eleventy-base-blog/tarball/main | tar -xz --strip-components=2 --wildcards -C ./site-1 '*/content/blog/*.md' '*/content/blog/*.png' && sed -i 's/\\.md//g;s/blog\\/third/\\/blog\\/third/' ./site-1/blog/secondpost.md",
-    "upload": "export $(cat .env | sed '/^ *#/d' | xargs) && [ -z \"$SITE1_REMOTE_DEST\" ] && echo '$SITE1_REMOTE_DEST' not in .env, see .env.sample for example || rsync -avzr --delete _site/ $SITE1_REMOTE_DEST"
+    "upload": "export $(cat .env | sed '/^ *#/d' | xargs) && [ -z \"$REMOTE_DEST\" ] && echo '$REMOTE_DEST' not in .env, see .env.sample for example || rsync -avzr --delete _site/ $REMOTE_DEST"
   },
   "author": "John Heenan and others",
   "license": "MIT",
