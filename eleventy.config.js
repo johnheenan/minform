@@ -15,7 +15,7 @@ import minformConfig from "./minform/minform.config.js";
  */
 export default async function (eleventyConfig) {
   await baseConfig(eleventyConfig, {
-    plugins: { "@anyblades/eleventy-blades": { mdAutoRawTags: false } },
+    plugins: { "@anyblades/eleventy-blades": { mdAutoRawTags: false, autoLinkFavicons: false } },
   });
 
   eleventyConfig.setLiquidOptions({ dynamicPartials: true, jsTruthy: true });
