@@ -32,8 +32,8 @@ backend:
 
 # Global configuration
 public_folder: /_public/media
-#media_folder: /site-1/_public/media
-media_folder: site-1/_public/media
+#media_folder: /content/_public/media
+media_folder: content/_public/media
 output:
   omit_empty_optional_fields: true
 
@@ -41,8 +41,8 @@ collections:
   - name: content
     label: Content
     public_folder: /
-    folder: /site-1
-    media_folder: /site-1
+    folder: /content
+    media_folder: /content
     slug: "{{fields._slug}}"
     fields:
       - { label: Title, name: title, widget: string, required: false }
@@ -54,8 +54,8 @@ collections:
   - name: blog
     label: Blog
     public_folder: /blog
-    folder: /site-1/blog
-    media_folder: /site-1/blog
+    folder: /content/blog
+    media_folder: /content/blog
     slug: "{{fields._slug}}"
     fields:
       - { label: Title, name: title, widget: string, required: false }

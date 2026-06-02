@@ -7,7 +7,7 @@ eleventyComputed:
 
 ## {{ summary }}
 
-'My Site' on navbar on left and on top of page is taken from `title` in file `site-1/_data/site.yml`.
+'My Site' on navbar on left and on top of page is taken from `title` in file `content/_data/site.yml`.
 
 The description above is from `description` in the same file.
 

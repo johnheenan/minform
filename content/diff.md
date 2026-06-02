@@ -16,7 +16,7 @@ summary: git diff from 'Build Awesome Start' to help adapt form, navbar and css 
 
 - The symlink from `index.md` to `../README.md` is removed.
 - The symlink of `eleventy.config.js` is removed.
-- It is not sufficient to remove the `_includes/bricks symlink` and copy over the bricks directory. It should be left and a parallel directory used, such as `_includes_minform` with the bricks directory copied here. Symlink within `site-1` to `../includes` needs to be changed, as shown.
+- It is not sufficient to remove the `_includes/bricks symlink` and copy over the bricks directory. It should be left and a parallel directory used, such as `_includes_minform` with the bricks directory copied here. Symlink within `content` to `../includes` needs to be changed, as shown.
 - If using `@anydigital/eleventy-bricks` then `mdAutoRawTags` must be set to false. Instead use `raw` with `endraw` tags as shown in example markdown.
 - Various filters and shortcodes are added
 
@@ -570,8 +570,8 @@ index d4e7570..8769b31 100644
    "type": "module",
    "workspaces": [
 @@ -12,7 +12,7 @@
-     "stage": "ELTY_OPTIONS='--input=./site-1' npm -w do run stage",
-     "build": "ELTY_OPTIONS='--input=./site-1' npm -w do run build"
+     "stage": "ELTY_OPTIONS='--input=./content' npm -w do run stage",
+     "build": "ELTY_OPTIONS='--input=./content' npm -w do run build"
    },
 -  "author": "Anton Staroverov",
 +  "author": "John Heenan and others",
@@ -580,10 +580,10 @@ index d4e7570..8769b31 100644
      "prettier-plugin-jinja-template": "^2.1.0",
 
 
-diff --git a/site-1/_data/site.yml b/site-1/_data/site.yml
+diff --git a/content/_data/site.yml b/content/_data/site.yml
 index 888a907..48c08ab 100644
---- a/site-1/_data/site.yml
-+++ b/site-1/_data/site.yml
+--- a/content/_data/site.yml
++++ b/content/_data/site.yml
 @@ -1,5 +1,5 @@
 -title: Sveleven
 -description: Modern, lightweight Eleventy v4 starter with Tailwind or Pico.css, CMS and multisiting 🥷
@@ -617,11 +617,11 @@ index 888a907..48c08ab 100644
 +formpath: /cgi-bin/mailform.cgi
 
 
-diff --git a/site-1/about.md b/site-1/about.md
+diff --git a/content/about.md b/content/about.md
 new file mode 100644
 index 0000000..e93dd4a
 --- /dev/null
-+++ b/site-1/about.md
++++ b/content/about.md
 @@ -0,0 +1,11 @@
 +---
 +minform: '[minform](https://gitub.cmm/johnheenan/minform)'
@@ -636,11 +636,11 @@ index 0000000..e93dd4a
 +#  {{ eleventyNavigation.title }}
 
 
-diff --git a/site-1/contact.md b/site-1/contact.md
+diff --git a/content/contact.md b/content/contact.md
 new file mode 100644
 index 0000000..5a58f4d
 --- /dev/null
-+++ b/site-1/contact.md
++++ b/content/contact.md
 @@ -0,0 +1,60 @@
 +---
 +title: Contact
@@ -704,11 +704,11 @@ index 0000000..5a58f4d
 +-->
 
 
-diff --git a/site-1/contact2.md b/site-1/contact2.md
+diff --git a/content/contact2.md b/content/contact2.md
 new file mode 100644
 index 0000000..589dab8
 --- /dev/null
-+++ b/site-1/contact2.md
++++ b/content/contact2.md
 @@ -0,0 +1,56 @@
 +---
 +title: Contact 2
@@ -768,11 +768,11 @@ index 0000000..589dab8
 +{% include 'forms/render-contact' contact:contact_unsubnews_internaltarget %}
 
 
-diff --git a/site-1/diff.md b/site-1/diff.md
+diff --git a/content/diff.md b/content/diff.md
 new file mode 100644
 index 0000000..c07b52f
 --- /dev/null
-+++ b/site-1/diff.md
++++ b/content/diff.md
 @@ -0,0 +1,20 @@
 +---
 +eleventyNavigation:
@@ -796,11 +796,11 @@ index 0000000..c07b52f
 +- Various filters and shortcodes are added
 
 
-diff --git a/site-1/index.md b/site-1/index.md
+diff --git a/content/index.md b/content/index.md
 new file mode 100644
 index 0000000..7ef99e0
 --- /dev/null
-+++ b/site-1/index.md
++++ b/content/index.md
 @@ -0,0 +1,14 @@
 +---
 +eleventyNavigation:
