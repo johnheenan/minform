@@ -8,6 +8,41 @@
     {%- endif %}
   {%- endif %}
 <style>
+  {% include "node_modules/@anyblades/pico/css/pico.blades.min.css" %}
+  footer {
+    text-align: center;
+  }
+  nav,
+  nav ul {
+    flex-wrap: wrap;
+    background: var(--pico-background-color);
+    /*border: var(--pico-border-width) solid var(--pico-muted-border-color);*/
+    top: auto;
+    z-index: auto;
+    position: static;
+  }
+  @media (min-width: 576px) {
+    nav,
+    nav ul {
+      flex-wrap: nowrap;
+      top: 0;
+      z-index: 1000;
+      position: sticky;
+    }
+  }
+  form .contact-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 20px;
+  }
+  @media only screen and (max-width: 576px) {
+    form .contact-container {
+      grid-template-columns: auto;
+    }
+  }
+  .mw100px {
+    min-width: 100px;
+  }
   a[role="button"] {text-align: start; border-width: 1px 0 0 1px; margin: 0.9rem 0 0 -1rem; }
 </style>
 {% endset %}

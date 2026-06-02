@@ -1,6 +1,6 @@
 {
   "name": "Minform",
-  "version": "0.5.3-beta.2",
+  "version": "0.5.3-beta.3",
   "description": "Website Template Minimalist Forms",
   "private": true,
   "type": "module",
@@ -8,7 +8,7 @@
     "do"
   ],
   "scripts": {
-    "do": "ELTY_OPTIONS=--input=./content TW_OPTIONS='-i ./_styles/styles.css -o ./_public/styles.css' npm -w do run",
+    "do": "ELTY_OPTIONS=--input=./content npm -w do run",
     "start": "npm run do -- start:with-tw",
     "stage": "npm run do -- stage",
     "build": "npm run do -- build",
@@ -28,7 +28,6 @@
     "@11ty/eleventy-img": "^6.0.4",
     "@anyblades/eleventy-blades-base": "^0.4.8",
     "@anyblades/pico": "^2.2.2",
-    "@tailwindcss/cli": "^4.3.0",
     "date-fns": "^4.4.0"
   }
 }
