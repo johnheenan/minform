@@ -5,9 +5,9 @@ layout: default.njk
 <h1>{{ title }}</h1>
 
 <h2>{{ description }}</h2>
-{%- set pagination = collections.all | filterBlogs | paginatePost(page.url) -%}
-{%- if pagination.previous %}{% set prevLink %}<- <a href="{{ pagination.previous.url }}">{{ pagination.previous.title | truncate(20) }}</a>,&nbsp;&nbsp{% endset %}{% endif %}
-{% if pagination.next %}{% set nextLink %}<a href="{{ pagination.next.url }}">{{ pagination.next.title | truncate(20) }}</a> ->{% endset %}{% endif %}<br>
+{%- set prevnext = collections.all | filterBlogs | prevnextPost(page.url) -%}
+{%- if prevnext.previous %}{% set prevLink %}<- <a href="{{ prevnext.previous.url }}">{{ prevnext.previous.title | truncate(20) }}</a>,&nbsp;&nbsp{% endset %}{% endif %}
+{% if prevnext.next %}{% set nextLink %}<a href="{{ prevnext.next.url }}">{{ prevnext.next.title | truncate(20) }}</a> ->{% endset %}{% endif %}<br>
 
 {% displayDate date %},&nbsp;&nbsp;&nbsp;{{ prevLink | safe }} {{ nextLink | safe }}<br>
 {% for tag in tags | sortAlphabetically %}

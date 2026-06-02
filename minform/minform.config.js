@@ -79,15 +79,15 @@ export default function (eleventyConfig) {
 	  (posts || []).filter(post => post.url.startsWith('/blog/') && post.url != '/blog/')
   );
 
-	eleventyConfig.addFilter("paginatePost", (posts, url) => {
-    const pagination={}
+	eleventyConfig.addFilter("prevnextPost", (posts, url) => {
+    const prevnext={}
     for (let i = 0; i < posts.length; i++) {
       if(posts[i].url == url){
-        if(i!=0) pagination.previous={url: posts[i-1].url, title: posts[i-1].data.title}
-        if(i<(posts.length-1)) pagination.next={url: posts[i+1].url, title: posts[i+1].data.title}
+        if(i!=0) prevnext.previous={url: posts[i-1].url, title: posts[i-1].data.title}
+        if(i<(posts.length-1)) prevnext.next={url: posts[i+1].url, title: posts[i+1].data.title}
         break
       }
     }
-    return pagination
+    return prevnext
   });
 }
