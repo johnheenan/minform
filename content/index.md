@@ -1,5 +1,6 @@
 ---
 title: Main
+description: site.description
 eleventyComputed:
     summary: "{{ site.description }}"
 ---

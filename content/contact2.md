@@ -1,6 +1,7 @@
 ---
-summary: More abstract contact from
 title: Contact 2
+description: Contact 2
+summary: More abstract contact from
 navorder: 3
 
 # do not use contact or mailvar_ for top level variable names

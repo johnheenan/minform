@@ -1,8 +1,8 @@
 ---
-minform: '[minform](https://gitub.cmm/johnheenan/minform)'
 title: About
+description: About
 summary: About
-
+minform: '[minform](https://gitub.cmm/johnheenan/minform)'
 eleventyNavigation:
   key: about
   title: About
