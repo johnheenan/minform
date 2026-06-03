@@ -30,18 +30,24 @@ jobs:
       - name: Create env file
         run: |
           touch .env
-          echo CMS_NAME=${{ secrets.CMS_NAME }} >> .env
-          echo CMS_REPO=${{ secrets.CMS_REPO }} >> .env
-          echo CMS_BASE_URL=${{ secrets.CMS_BASE_URL }} >> .env
-          echo CMS_API_ROOT=${{ secrets.CMS_API_ROOT }} >> .env
-          echo CMS_AUTH_ENDPOINT=${{ secrets.CMS_AUTH_ENDPOINT }} >> .env
-          echo CMS_APP_ID=${{ secrets.CMS_APP_ID }} >> .env
-          echo CMS_BRANCH=${{ secrets.CMS_BRANCH }} >> .env
-          echo finished constructing .env file
-          #cat .env
-          #echo REMOTE_PATH=${{ secrets.REMOTE_PATH }}
-          #echo REMOTE_HOST=${{ secrets.REMOTE_HOST }}
-          #echo REMOTE_USER=${{ secrets.REMOTE_USER }}
+          echo CMS_NAME=${{ vars.CMS_NAME }} >> .env
+          echo CMS_REPO=${{ vars.CMS_REPO }} >> .env
+          echo CMS_BASE_URL=${{ vars.CMS_BASE_URL }} >> .env
+          echo CMS_API_ROOT=${{ vars.CMS_API_ROOT }} >> .env
+          echo CMS_AUTH_ENDPOINT=${{ vars.CMS_AUTH_ENDPOINT }} >> .env
+          echo CMS_APP_ID=${{ vars.CMS_APP_ID }} >> .env
+          echo CMS_BRANCH=${{ vars.CMS_BRANCH }} >> .env
+          echo 'finished constructing repository specific .env file:'
+          cat .env
+          echo
+          echo 'repository specific remote vars:'
+          echo REMOTE_PATH=${{ vars.REMOTE_PATH }}
+          echo REMOTE_HOST=${{ vars.REMOTE_HOST }}
+          echo REMOTE_USER=${{ vars.REMOTE_USER }}
+          echo
+          echo 'user specific private key not shown'
+          echo
+
 
       - name: Build Assets
         run: |
@@ -56,4 +62,4 @@ jobs:
           remote_path: ${{ secrets.REMOTE_PATH }} # ex: public_html
           remote_host: ${{ secrets.REMOTE_HOST }} # ex: example.com
           remote_user: ${{ secrets.REMOTE_USER }} # ex: username
-          remote_key:  ${{ secrets.REMOTE_PRIVATE_KEY }}
+          remote_key:  ${{ secrets.PRIVATE_KEY }}
