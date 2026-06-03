@@ -45,7 +45,7 @@ jobs:
           echo REMOTE_HOST=${{ vars.REMOTE_HOST }}
           echo REMOTE_USER=${{ vars.REMOTE_USER }}
           echo
-          echo 'user specific private key not shown'
+          echo 'user specific secret private key not shown'
           echo
 
 
@@ -59,7 +59,7 @@ jobs:
         with:
           switches: -avzr --delete
           path: _site/
-          remote_path: ${{ secrets.REMOTE_PATH }} # ex: public_html
-          remote_host: ${{ secrets.REMOTE_HOST }} # ex: example.com
-          remote_user: ${{ secrets.REMOTE_USER }} # ex: username
+          remote_path: ${{ vars.REMOTE_PATH }} # ex: public_html
+          remote_host: ${{ vars.REMOTE_HOST }} # ex: example.com
+          remote_user: ${{ vars.REMOTE_USER }} # ex: username
           remote_key:  ${{ secrets.PRIVATE_KEY }}
