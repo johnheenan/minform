@@ -5,7 +5,6 @@ import baseConfig from "@anyblades/eleventy-blades-base";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import fs from "fs"
-import eleventyAutoCacheBuster from "eleventy-auto-cache-buster"
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
 import {format} from "date-fns"
 import dotenv from "dotenv"
@@ -22,7 +21,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({ dynamicPartials: true, jsTruthy: true });
   eleventyConfig.setLibrary("md", markdownIt().use(markdownItAnchor));
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
-  eleventyConfig.addPlugin(eleventyAutoCacheBuster);
+  eleventyConfig.addBundle("css");
   eleventyConfig.addGlobalData("env", dotenv.config().parsed); // just assign contents of .env file to global env without duplicating process.env
   eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
     if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {
