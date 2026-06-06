@@ -45,7 +45,7 @@ jobs:
           echo REMOTE_HOST=${{ vars.REMOTE_HOST }}
           echo REMOTE_USER=${{ vars.REMOTE_USER }}
           echo
-          echo 'user specific secrets.PRIVATE_KEY not shown'
+          echo 'user specific secrets.CMS_PRIVATE_KEY not shown'
           echo
 
 
