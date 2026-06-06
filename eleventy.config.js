@@ -85,10 +85,6 @@ export default async function (eleventyConfig) {
     (strings || []).sort((b, a) => b.localeCompare(a))
   );
 
-  eleventyConfig.addFilter("filterBlogs", posts =>
-    (posts || []).filter(post => post.url.startsWith('/blog/') && post.url != '/blog/')
-  );
-
   eleventyConfig.addFilter("prevnextPost", (posts, url) => {
     const prevnext={}
     for (let i = 0; i < posts.length; i++) {
@@ -100,4 +96,9 @@ export default async function (eleventyConfig) {
     }
     return prevnext
   });
+
+	eleventyConfig.addCollection("blogsReversed", function (collectionsApi) {
+    return collectionsApi.getFilteredByGlob(["content/blog/**"]).toReversed()
+	});
+
 }

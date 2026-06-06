@@ -1,11 +1,10 @@
 ---
 layout: default.njk
 ---
-{% if page.url.startsWith('/blog/') and page.url != '/blog/' %}
 <h1>{{ title }}</h1>
 
 <h2>{{ description }}</h2>
-{%- set prevnext = collections.all | filterBlogs | prevnextPost(page.url) -%}
+{%- set prevnext = collections.blogsReversed | prevnextPost(page.url) -%}
 {%- if prevnext.previous %}{% set prevLink %}<- <a href="{{ prevnext.previous.url }}">{{ prevnext.previous.title | truncate(20) }}</a>,&nbsp;&nbsp{% endset %}{% endif %}
 {% if prevnext.next %}{% set nextLink %}<a href="{{ prevnext.next.url }}">{{ prevnext.next.title | truncate(20) }}</a> ->{% endset %}{% endif %}<br>
 
@@ -14,7 +13,6 @@ layout: default.njk
 	{% set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
 	[<a href="{{ tagUrl }}">{{ tag }}</a>]
 {% endfor %}<p>
-{% endif %}
 
 {{ content | safe }}
 
