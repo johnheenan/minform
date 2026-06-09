@@ -78,7 +78,7 @@ export default async function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("filterTagList", function filterTagList(tags) {
-    return (tags || []).filter(tag => ["all", "posts"].indexOf(tag) === -1);
+    return (tags || []).filter(tag => ["all", "posts", "blogsReversed"].indexOf(tag) === -1);
   });
 
   eleventyConfig.addFilter("sortAlphabetically", strings =>
