@@ -15,8 +15,11 @@ The description above is from `description` in the same file.
 The footer can also be edited in the same file from `footer` and can be multiline.
 
 
+## Developer UX philosophy
 
+Promote developer UX (user experience) escape hatches to frustrating static web site development. Allow simple forms to email.
 
+See [The Conditions the Developer UX Philosophy Escapes From](https://github.com/johnheenan/minform#the-conditions-the-developer-ux-philosophy-escapes-from)
 
 ## Templates
 
@@ -28,7 +31,6 @@ The footer can also be edited in the same file from `footer` and can be multilin
 - This version is v{% npm_package_version %}, which may be same, behind or ahead of [latest public release](https://github.com/johnheenan/minform/releases/latest)
 
 
-
 ### Implemented Templates
 
 #### Minformhf by Hostfurl
@@ -38,48 +40,9 @@ The footer can also be edited in the same file from `footer` and can be multilin
 - The demonstrated version may be same, behind or ahead of [latest public release](https://github.com/hostfurl/minformhf/releases/latest)
 
 
-
 ### Raise an issue to have your own implementation included
-
-
-
-
-
-
-
-
-## Basic Topics
-
-### Editing locally
-- TBD
-
-
-### Updating after editing locally
- 
-- Using rsync
-
-
-### Using Git
-- Not required
-- TBD
-
-
-
-
-
-
-## Advanced Topics
-
-
-### Using CI/CD to update site automatically
-- Setup to allow automatic site update triggered by a push (save to non local Git repository) using CI/CD (Continuous Integration/Continuous Delivery and/or Deployment)
-- TBD
-
-
-### Setting up live site editing as a CMS with no local repository
-- [Sveltia CMS]( https://sveltiacms.app/en/) is included. Behind the scenes, uses GitHub Actions (or actions with another GIT service provider), without exposure.
-- TBD
 
 
 ### Making your own template
 - Part of the first `git diff` for this template with template it was developed from can be viewed at [first diff](/diff).
+

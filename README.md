@@ -1,14 +1,6 @@
 
 # Minform
 
-## Migration to Forgejo Git Server warning
-
-If you migrate this repository to a Forgejo Git server then it will attempt to start a Forgejo Action. Public examples of Forgejo servers are https://codeberg.org/ and https://codefloe.com/
-
-There is a mechanism to place in place to stop the Forgejo Action early. Forgejo Actions should be disabled following migration until further setup.
-
-More information to follow.
-
 ## Website template starter with markdown and minimalist forms
 
 A very minimalist approach to adding in forms templating to a website starter template that supports markdown.
@@ -20,6 +12,10 @@ Minform is a public website template using [11ty](https://11ty.dev) static websi
 Minform is open source with a permissive license.
 
 Minform is a public web template built on  [Build Awesome Starter](https://github.com/anydigital/build-awesome-starter) version [v0.8.1](https://github.com/anydigital/build-awesome-starter/releases/tag/v0.8.1) with the following additions:
+
+## Developer UX Philosophy
+
+Promote developer UX (user experience) escape hatches to frustrating static web site development. Allow simple forms to email. Detailed information below.
 
 ## Added
 
@@ -38,8 +34,108 @@ No state or login information used.
 
 Using htmx, a backend server is expected to handle standard POST requests and return a simple HTML response for display in a `<div>` of the same page by htmx. The page is not replaced.
 
-Using similar techniques as [anyblades/subtle](https://github.com/anyblades/subtle), the
-sample starter blog pages from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) have been included in `/blog` and some additions made. In addition code from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) used and adapted.
+Using similar techniques as [anyblades/subtle](https://github.com/anyblades/subtle), the sample starter blog pages from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) have been included in `/blog` and some additions made. In addition code from [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog) used and adapted.
+
+## Blog Features
+
+- Markdown based for easy editing
+- One or more tags can be specified in front matter (see examples)
+- There is an automatically generated separate page to list all tags
+- There are automatically generated separate pages for each individual tag with links to blog entries
+- There is an automatically generated set of Blog index pages that are linked
+- Edit `size` in frontmatter of `content/blog.njk` to change maximum number of blogs indexed in each index page
+- Each blog entry has previous and next links, based on date order
+- The date can be altered in front matter to change its order in the index
+- Image files can be remote links and also uploaded to same directory as markdown file
+- Uploaded image files are processed when not in _public directory
+- `draft : true` in front matter will exclude draft from production build. It is good idea to add a draft tag to quickly find drafts.
+ 
+ 
+## The Conditions the Developer UX Philosophy Escapes From
+
+Escape from frustratingly sluggish web site development where there is high lag or poor network conditions, such as from high lag [Tyranny of Distance](https://en.wikipedia.org/wiki/The_Tyranny_of_Distance_(book)), or from congested and intermittent mobile networks during rush hours, using a mobile phone.
+
+Escapes include point and click or touch based solutions for the less technically oriented, that work well on small screens such as tablets and mobile phones.
+
+## The Escapes
+
+Three escapes are described, a shell escape and two web browser based escapes.
+
+### Shell Escape
+
+#### Highly Efficient Shell Based Escapes that Work on a Tablet
+
+This technically practical approach is the fastest, most efficient and technically capable approach with superb capability at fixing issues. Works well on tablets but not so well on mobile phones.
+
+Use a shell with git and npm and only upload incremental changes to a web server with command aliases. A very common approach for professionals. CI/CD is optional for a one step approach that only requires a git server to be updated,
+
+Requires substantial practice to get efficient at and looks messy to the inexperienced who are accustomed to point and click approaches.
+
+Can fix up issues arising from approaches below. 
+
+### Escapes that still allow Point and Click or Touch, when CI/CD is included
+
+Web pages are loaded into a web browser for local editing.
+
+The key is including CI/CD (Continuous Integration/Continuous Deployment or Delivery). 
+
+While setting up CI/CD is involved, CI/CD can be provisioned automatically for a git server with APIs and so integrated into admin services.
+
+These approaches can lead to difficult to fix messes. Such messes are best efficiently fixed with shell approach above by those who are experienced.
+
+#### Edit entire page locally in browser escape using Git server UI that works on a tablet
+
+For those who do not feel intimidated by an approach with some technicality, the git server UI approach is available. Navigation can appear complex. This approach is not ideal, particularly when messes result, and in no way matches the efficiency and speed of the shell based approach to fix messes. It can help solve problems with the next CMS approach, such as uploading multiple image files.
+
+Very practical for web pages using Markdown.
+
+Web pages and web page edits are stored locally as text in a browser, with preview available. Very snappy once loaded. Point and click navigation can appear complex, be sluggish and re loading of pages for editing can also be sluggish.
+
+This approach can solve issues with the next approach, such as uploading multiple image files.
+
+#### Edit entire page locally in browser escape using specialised CMS that works on a tablet or phone and hides complexity
+
+With [Sveltia CMS](https://sveltiacms.app/), git server web pages that are part of a collection are downloaded and stored in the local browser cache, along with edits, delaying the need to save changed pages immediately. 
+
+The key is a SPA (single web page app) that also includes CI/CD on a git server backend. Navigation and editing is simple point and click or touch. With CI/CD the git server itself can rebuild the web site and deploy it.
+
+Very practical for web pages using Markdown.
+
+Both the navigation and page editing experience is very snappy as it is all local. Clicking on a save button uploads changed file through the servers API (entire file is uploaded, not just changes) and if CI/CD is configured, includes the changes on the web site without any further action.
+
+A nice way for anyone to make minor edits to a web site on a tablet or mobile phone during rush hours with varying mobile signal quality and congestion.
+
+While not as efficient as the shell based approach, it is still an enormous improvement to 'online editing' in high latency or poor network environments.
+
+## Relevant features of GitHub and Forgejo Git Servers for CMS CI/CD use
+
+|       | Forgejo | GitHub  |
+| :----- | :-----------: | :---: |
+| GitHub Compatible Actions |  ✅ | ✅  |
+| Access Token for CMS|  ✅ | ✅  |
+| Fine grained Access Tokens  | ❌  | ✅ |
+| Logon for CMS - no external server <sup>1</sup> | ✅ | ❌ |
+| Logon for CMS - with external server <sup>2</sup>| ✅  | ✅ |
+| Git services range  | 5/5 | 5/5 |
+| UI usability <sup>3</sup> | 5/5 | 5/5 |
+| UI feature range compared to GitHub |  3/5 | 5/5  |
+| Delete non empty directory with UI <sup>4</sup> | ❌  | ✅ |
+| REST API |  ✅ | ✅  |
+| GraphQL API <sup>5</sup> | ❌  | ✅ |
+| Open Source | ✅ | ❌ |
+| Self Hosting  |  Free  | Subscription |
+
+1\. GitHub currently does not allow OAuth 2.0 Authentication Codes to be converted to OAuth 2.0 Access Token with client secret. Must be done externally instead using client secret.  
+2\. Netlify is commonly used for GitHub with Sveltia CMS. A node express app with npm package simple-oauth2 can be used.  Not required with Forgejo.  
+3\. UI usability is not the same as ease of use of UI for the inexperienced: there is nothing easy about starting with Git and Git Servers for the inexperienced at either the command line or UI level. It should be kept in mind that Git is first and foremost a command line tool for un-intuitive, fast, efficient, local distributed (non centralised) directory content tracking (including versioning) by building on 'dumb' de-duplicate file content addressing. Git servers provide enhancements that are not a core part of Git. There is no point in complaining about how un-intuitive git and command names used are: experienced git users live in the command line and are infamous for not caring about or reacting to rants. From their perspective, complaints and rants miss the point and are irrelevant. The effort required to gain a useful working knowledge is far more than the effort required to overcome confusion about command names viewed as un-intuitive due to what is incorrectly imagined how Git works. Why should two decades of non theoretical practice oriented, efficient, successful, practices to make effective use of a well hidden, with notorious plumbing, un-intuitive methods, that was a tremendous improvement on prior methods, and was originally a side project written with bash scripts to solve an enormous public legal row, be cosmetically changed to suit ranters? Automatic provisioning with APIs, such as automated CMS CI/CD provisioning, is a huge help to bypass complexity. Sveltia CMS uses Git server APIs within the browser, so it is natural to also add API automated provisioning at a hosting provider level to help and to hide complexity.  
+4\. Practical use point. There is a held up pull request to enable this in Forgejo.  Best solution is command line deletion of directory. Otherwise turn off Actions, delete files one by one, then directory, then turn on Actions again.  
+5\. With GraphQL, API all files can be downloaded from CMS specified collections to local browser cache with a single API call.  
+
+## Migration to Forgejo Git Server warning
+
+If you migrate this repository to a Forgejo Git server then it will attempt to start a Forgejo Action. Public examples of Forgejo servers are https://codeberg.org/ and https://codefloe.com/
+
+There is a mechanism to place in place to stop the Forgejo Action early. Forgejo Actions should be disabled following migration until further setup.
 
 ## Usage
 
@@ -55,6 +151,7 @@ To view in a development environment:
 - `npm install`
 - `npm start`
 - Browse to link
+- If using CMS CI/CD, please see `.env.sample` and make sure any `.env` file is included in `.gitignore`. While the information is not really secret, it is good practice and will avoid getting automated warnings. 
 
 ## Updates
 
