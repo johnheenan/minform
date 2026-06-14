@@ -17,6 +17,8 @@ The footer can also be edited in the same file from `footer` and can be multilin
 
 ## Developer UX philosophy
 
+Promote developer UX (user experience) escape hatches to frustrating static web site development. Allow simple forms to email.
+
 See [The Conditions the Developer UX Philosophy Escapes From](https://github.com/johnheenan/minform#the-conditions-the-developer-ux-philosophy-escapes-from)
 
 ## Templates
