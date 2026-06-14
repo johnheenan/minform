@@ -11,7 +11,7 @@ Minform is a public website template using [11ty](https://11ty.dev) static websi
 
 Minform is open source with a permissive license.
 
-Minform is a public web template built on  [Build Awesome Starter](https://github.com/anydigital/build-awesome-starter) version [v0.8.1](https://github.com/anydigital/build-awesome-starter/releases/tag/v0.8.1) with the following additions:
+Minform is a public web template built on  [Build Awesome Starter](https://github.com/anydigital/build-awesome-starter) version [v0.8.1](https://github.com/anydigital/build-awesome-starter/releases/tag/v0.8.1)
 
 ## Developer UX Philosophy
 
@@ -19,7 +19,7 @@ Promote developer UX (user experience) escape hatches to frustrating static web 
 
 ## Added
 
-The main addition is a minimalist approach to adding template based forms using two different approaches
+Blog features and a minimalist approach to adding template based forms using two different approaches
 
 - A simpler form addition approach, easier for beginners, that requires attention to reset variable names that are reused.
 - A more abstract form addition approach that uses rendering as soon as convenient and can reuse variable names without reset. This approach is suitable for further adaptation.
