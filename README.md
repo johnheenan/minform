@@ -107,6 +107,37 @@ A nice way for anyone to make minor edits to a web site on a tablet or mobile ph
 
 While not as efficient as the shell based approach, it is still an enormous improvement to 'online editing' in high latency or poor network environments.
 
+## How can external users or access be added to edit repository on a Git server, including for Sveltia CMS?
+
+**TLDR:** Sveltia CMS allows UI logon as collaborator. Access Tokens, intended for automated API use, not for UI use, can also be used. While Access tokens can also be used at the command line level, SSH keys are a better solution at the command line level.
+
+### Local file access to repository
+
+None of the following applies for direct local file access to a distributed Git repository, which is the primary and core use of Git.
+
+### Logon and Access methods to repository on a Git Server
+
+There are three ways to access a repository on a Git server, depending on interface:
+
+| Repository Server Interface | Preferred Access Method |
+| :----- | :----------- |
+| UI | Password / Passkey / External server |
+| Command line | SSH key <sup>1</sup> |
+| Automated API | Access Token |
+
+1\. Access Tokens can be used for command line access but it is not ideal.
+
+If the external user has a user account on same Git server then an external user can be added in as a write or admin level collaborator to a specific repository. In this case it is up to the external user to manage their own repository access with UI (regular login as themselves) or command line (SSH key). For Sveltia CMS UI, they can use a regular UI logon as themselves but not a SSH key for such UI access.
+
+### Sveltia UI Logon Methods to repository on a Git Server
+
+- Password / Passkey
+- Access Token
+
+If an external user has no user access account, or if they are not granted collaborator access, then an access token can be provided for Sveltia CMS UI to get read/write access to the repository at an API level. This is not ideal, is not an intended use of Access Tokens, and is not as convenient or as secure as using a regular UI login. For example, the Access Token needs to be pasted into the login UI of Sveltia CMS.
+
+Further information in next section.
+
 ## Relevant features of GitHub and Forgejo Git Servers for CMS CI/CD use
 
 |       | Forgejo | GitHub  |
