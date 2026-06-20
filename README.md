@@ -112,8 +112,8 @@ While not as efficient as the shell based approach, it is still an enormous impr
 |       | Forgejo | GitHub  |
 | :----- | :-----------: | :---: |
 | GitHub Compatible Actions |  ✅ | ✅  |
-| Access Token for CMS|  ✅ | ✅  |
-| Fine grained Access Tokens  | ❌  | ✅ |
+| Command line access by SSH Key/Access Token only  | ✅  | ✅ |
+| Access Tokens for write to only specified repositories |  ✅ | ❌  |
 | Logon for CMS - no external server <sup>1</sup> | ✅ | ❌ |
 | Logon for CMS - with external server <sup>2</sup>| ✅  | ✅ |
 | Git services range  | 5/5 | 5/5 |
