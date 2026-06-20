@@ -114,8 +114,9 @@ While not as efficient as the shell based approach, it is still an enormous impr
 | GitHub Compatible Actions |  ✅ | ✅  |
 | Command line access by SSH Key/Access Token only  | ✅  | ✅ |
 | Access Tokens for write to only specified repositories |  ✅ | ❌  |
-| Logon for CMS - no external server <sup>1</sup> | ✅ | ❌ |
-| Logon for CMS - with external server <sup>2</sup>| ✅  | ✅ |
+| Sveltia CMS edit with Access Token | ✅ | ✅ |
+| Sveltia CMS edit with UI logon - no external server <sup>1</sup> | ✅ | ❌ |
+| Sveltia CMS edit with UI logon - with external server <sup>2</sup>| ✅  | ✅ |
 | Git services range  | 5/5 | 5/5 |
 | UI usability <sup>3</sup> | 5/5 | 5/5 |
 | UI feature range compared to GitHub |  3/5 | 5/5  |
