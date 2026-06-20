@@ -121,7 +121,7 @@ There are three ways to access a repository on a Git server, depending on interf
 
 | Repository Server Interface | Preferred Access Method |
 | :----- | :----------- |
-| UI | Password / Passkey / External server |
+| UI | Password / Passkey / Third Party |
 | Command line | SSH key <sup>1</sup> |
 | Automated API | Access Token |
 
@@ -131,7 +131,7 @@ If the external user has a user account on same Git server then an external user
 
 ### Sveltia UI Logon Methods to repository on a Git Server
 
-- Password / Passkey
+- Password / Passkey / Third Party
 - Access Token
 
 If an external user has no user access account, or if they are not granted collaborator access, then an access token can be provided for Sveltia CMS UI to get read/write access to the repository at an API level. This is not ideal, is not an intended use of Access Tokens, and is not as convenient or as secure as using a regular UI login. For example, the Access Token needs to be pasted into the login UI of Sveltia CMS.
@@ -146,8 +146,8 @@ Further information in next section.
 | Command line access by SSH Key/Access Token only  | ✅  | ✅ |
 | Access Tokens for write to only specified repositories |  ✅ | ❌  |
 | Sveltia CMS edit with Access Token | ✅ | ✅ |
-| Sveltia CMS edit with UI logon - no external server <sup>1</sup> | ✅ | ❌ |
-| Sveltia CMS edit with UI logon - with external server <sup>2</sup>| ✅  | ✅ |
+| Sveltia CMS edit with UI logon - no external token server <sup>1</sup> | ✅ | ❌ |
+| Sveltia CMS edit with UI logon - with external token server <sup>2</sup>| ✅  | ✅ |
 | Git services range  | 5/5 | 5/5 |
 | UI usability <sup>3</sup> | 5/5 | 5/5 |
 | UI feature range compared to GitHub |  3/5 | 5/5  |
