@@ -121,18 +121,21 @@ There are three ways to access a repository on a Git server, depending on interf
 
 | Repository Server Interface | Preferred Access Method |
 | :----- | :----------- |
-| UI | Password / Passkey / Third Party |
-| Command line | SSH key <sup>1</sup> |
+| UI | Password / Passkey<sup>1</sup> / Third Party |
+| Command line | SSH key <sup>2</sup> |
 | Automated API | Access Token |
 
-1\. Access Tokens can be used for command line access but it is not ideal.
+1\. Passkeys are a 2FA option in Forgejo, not a login option  
+2\. Access Tokens can be used for command line access but it is not ideal.
 
 If the external user has a user account on same Git server then an external user can be added in as a write or admin level collaborator to a specific repository. In this case it is up to the external user to manage their own repository access with UI (regular login as themselves) or command line (SSH key). For Sveltia CMS UI, they can use a regular UI logon as themselves but not a SSH key for such UI access.
 
 ### Sveltia UI Logon Methods to repository on a Git Server
 
-- Password / Passkey / Third Party
+- Password / Passkey<sup>1</sup> / Third Party
 - Access Token
+
+1\. Passkeys are a 2FA option in Forgejo, not a login option
 
 If an external user has no user access account, or if they are not granted collaborator access, then an access token can be provided for Sveltia CMS UI to get read/write access to the repository at an API level. This is not ideal, is not an intended use of Access Tokens, and is not as convenient or as secure as using a regular UI login. For example, the Access Token needs to be pasted into the login UI of Sveltia CMS.
 
